@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="titre-page">Fiche produit — Sarah-Anne Valère</title>
+<meta id="meta-description" name="description" content="Découvrez ce soin Sarah-Anne Valère : ingrédients, mode d'emploi, avis clients.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="annonce-bar">Livraison offerte dès 90€ d'achat, partout dans le monde</div>
+<header class="entete">
+  <div class="entete-inner">
+    <a href="index.html" class="logo">Sarah-Anne <span>Valère</span></a>
+    <nav class="nav-principale" aria-label="Navigation principale">
+      <a href="boutique.html" aria-current="page">Boutique</a>
+      <a href="boutique.html?categorie=Rituels">Rituels</a>
+      <a href="a-propos.html">La maison</a>
+      <a href="blog.html">Journal</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="entete-actions">
+      <a href="compte.html" class="icone-lien" aria-label="Mon compte"><svg viewBox="0 0 24 24"><path d="M12 12a4 4 0 100-8 4 4 0 000 8zM4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg></a>
+      <a href="compte.html?onglet=envies" class="icone-lien" aria-label="Liste d'envies"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.35-9.5-8.8C.7 8.7 2 5 5.6 5c2 0 3.4 1.2 4.4 2.8C11 6.2 12.4 5 14.4 5 18 5 19.3 8.7 17.5 12.2 15 16.65 12 21 12 21z"/></svg></a>
+      <button class="icone-lien" data-ouvrir-panier aria-label="Panier"><svg viewBox="0 0 24 24"><path d="M3 6h2l1.2 12.4A2 2 0 008.2 20h7.6a2 2 0 002-1.6L19 8H6"/><circle cx="9" cy="21" r="1"/><circle cx="17" cy="21" r="1"/></svg><span class="badge-panier">0</span></button>
+      <button class="nav-toggle" aria-label="Ouvrir le menu"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="nav-menu-mobile">
+  <button class="fermer-tiroir" aria-label="Fermer le menu">×</button>
+  <a href="boutique.html">Boutique</a>
+  <a href="a-propos.html">La maison</a>
+  <a href="blog.html">Journal</a>
+  <a href="contact.html">Contact</a>
+  <a href="compte.html">Mon compte</a>
+</div>
+
+<div class="tiroir-fond"></div>
+<div class="tiroir" role="dialog" aria-label="Panier">
+  <div class="tiroir-entete"><h3>Votre panier</h3><button class="fermer-tiroir fermer-tiroir-panier" aria-label="Fermer">×</button></div>
+  <div class="tiroir-corps"></div>
+  <div class="tiroir-pied"></div>
+</div>
+
+<main>
+  <div class="wrap">
+    <nav class="fil-ariane" id="fil-ariane"><a href="index.html">Accueil</a><span>/</span><a href="boutique.html">Boutique</a><span>/</span><span id="fil-nom"></span></nav>
+  </div>
+
+  <div class="wrap" id="conteneur-produit"></div>
+
+  <div class="wrap aussi-aimer">
+    <div class="section-entete"><div><p class="eyebrow">Complétez le rituel</p><h2>Vous aimerez aussi</h2></div></div>
+    <div class="grille-produits" id="grille-suggestions" style="grid-template-columns:repeat(4,1fr);"></div>
+  </div>
+</main>
+
+<footer class="pied">
+  <div class="wrap">
+    <div class="pied-grille">
+      <div>
+        <div class="pied-logo">Sarah-Anne Valère</div>
+        <p class="pied-baseline">Cosmétique botanique formulée en Provence, vegan et non testée sur les animaux.</p>
+        <div class="reseaux">
+          <a href="https://instagram.com" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8"/></svg></a>
+          <a href="https://pinterest.com" aria-label="Pinterest" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 19c1-3 2-7 2-9a2 2 0 114 0c0 1.5-1 4-2 5.5"/></svg></a>
+          <a href="https://facebook.com" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M15 8h-2a2 2 0 00-2 2v10M9 13h6"/><circle cx="12" cy="12" r="9"/></svg></a>
+        </div>
+      </div>
+      <div><h4>Boutique</h4><ul>
+        <li><a href="boutique.html">Soins visage</a></li>
+        <li><a href="boutique.html">Soins corps</a></li>
+        <li><a href="boutique.html">Parfums</a></li>
+        <li><a href="boutique.html">Rituels &amp; coffrets</a></li>
+      </ul></div>
+      <div><h4>La maison</h4><ul>
+        <li><a href="a-propos.html">Notre histoire</a></li>
+        <li><a href="a-propos.html#engagements">Engagements</a></li>
+        <li><a href="blog.html">Journal</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul></div>
+      <div><h4>Aide</h4><ul>
+        <li><a href="contact.html#faq">FAQ</a></li>
+        <li><a href="panier.html">Livraison &amp; retours</a></li>
+        <li><a href="mentions-legales.html">Mentions légales</a></li>
+        <li><a href="confidentialite.html">Confidentialité</a></li>
+      </ul></div>
+    </div>
+    <div class="pied-bas">
+      <span>© 2026 Sarah-Anne Valère. Tous droits réservés.</span>
+      <div class="paiements"><span>Visa</span><span>Mastercard</span><span>PayPal</span><span>Apple Pay</span></div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+<script>
+(function(){
+  const id = new URLSearchParams(location.search).get("id") || PRODUITS[0].id;
+  const p = PRODUITS.find(x => x.id === id) || PRODUITS[0];
+  const avis = AVIS[p.id] || [];
+  let quantite = 1;
+  let imageActive = 0;
+
+  document.title = `${p.nom} — Sarah-Anne Valère`;
+  document.getElementById("meta-description").setAttribute("content", p.description.slice(0,150));
+  document.getElementById("fil-nom").textContent = p.nom;
+
+  function etoilesSVG(n){
+    return Array.from({length:5}).map((_,i) => `<svg viewBox="0 0 20 20" style="opacity:${i < Math.round(n) ? 1 : 0.25}"><polygon points="10,1 12.6,7 19,7.5 14,12 15.5,18.5 10,15 4.5,18.5 6,12 1,7.5 7.4,7"/></svg>`).join("");
+  }
+
+  document.getElementById("conteneur-produit").innerHTML = `
+    <div class="fiche-produit">
+      <div>
+        <div class="galerie-principale" id="galerie-principale">
+          <img id="image-principale" src="${p.images[0]}" alt="${p.nom}">
+        </div>
+        <div class="galerie-miniatures" id="galerie-miniatures">
+          ${p.images.map((img,i) => `<button class="${i===0?'actif':''}" data-i="${i}"><img src="${img}" alt="Vue ${i+1} de ${p.nom}"></button>`).join("")}
+        </div>
+      </div>
+      <div>
+        <p class="fp-cat">${p.categorie}</p>
+        <h1 class="fp-nom">${p.nom}</h1>
+        <div class="fp-note">
+          <span class="etoiles" style="font-size:1rem;">${etoilesSVG(p.note)}</span>
+          <a href="#avis-onglet" id="lien-avis">${p.note} · ${p.avisNb} avis</a>
+        </div>
+        <p class="fp-prix">${SAV.formaterPrix(p.prix)}</p>
+        <p class="fp-desc">${p.description}</p>
+        <div class="fp-tags">${p.peaux.map(t => `<span class="fp-tag">${t}</span>`).join("")}${p.ingredients.map(t => `<span class="fp-tag">${t}</span>`).join("")}</div>
+        <div class="fp-achat">
+          <div class="quantite">
+            <button aria-label="Diminuer la quantité" id="moins-qte">−</button>
+            <span id="valeur-qte">1</span>
+            <button aria-label="Augmenter la quantité" id="plus-qte">+</button>
+          </div>
+          <button class="btn btn-primaire btn-large" style="flex:1;" id="btn-ajouter">Ajouter au panier</button>
+          <button class="btn btn-contour" data-envie-id="${p.id}" aria-label="Ajouter à la liste d'envies" id="btn-envie">♡</button>
+        </div>
+        <p class="form-note">${p.stock > 10 ? "En stock — expédié sous 24h" : `Il ne reste que ${p.stock} unités`}</p>
+        <div class="fp-livraison">
+          <svg viewBox="0 0 24 24"><rect x="1" y="7" width="15" height="10"/><path d="M16 10h4l3 3v4h-7z"/><circle cx="6" cy="19" r="1.6"/><circle cx="18" cy="19" r="1.6"/></svg>
+          <span>Livraison estimée entre 2 et 4 jours ouvrés. Retours gratuits sous 30 jours.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="fp-onglets" data-onglets>
+      <div class="onglets-nav">
+        <button class="onglet-btn actif" data-cible="onglet-description">Description</button>
+        <button class="onglet-btn" data-cible="onglet-ingredients">Ingrédients</button>
+        <button class="onglet-btn" data-cible="onglet-usage">Mode d'emploi</button>
+        <button class="onglet-btn" data-cible="onglet-avis" id="onglet-btn-avis">Avis (${p.avisNb})</button>
+      </div>
+      <div class="onglet-panneau actif" id="onglet-description"><p class="lede" style="max-width:70ch;">${p.description}</p></div>
+      <div class="onglet-panneau" id="onglet-ingredients"><p class="lede" style="max-width:70ch;">${p.ingredientsListe}</p></div>
+      <div class="onglet-panneau" id="onglet-usage"><ul>${p.modeEmploi.map(e => `<li>${e}</li>`).join("")}</ul></div>
+      <div class="onglet-panneau" id="onglet-avis">
+        <div class="avis-resume">
+          <div class="avis-note-globale">${p.note}</div>
+          <div>
+            <span class="etoiles">${etoilesSVG(p.note)}</span>
+            <p class="form-note" style="margin-top:6px;">Basé sur ${p.avisNb} avis vérifiés</p>
+          </div>
+        </div>
+        ${avis.length ? avis.map(a => `
+          <div class="avis-item">
+            <div class="avis-entete"><span class="avis-auteur">${a.auteur}</span><span class="avis-date">${a.date}</span></div>
+            <span class="etoiles" style="margin-bottom:8px; display:inline-flex;">${etoilesSVG(a.note)}</span>
+            <p>${a.texte}</p>
+          </div>`).join("") : `<p class="lede">Les avis détaillés pour ce produit seront bientôt disponibles.</p>`}
+      </div>
+    </div>
+  `;
+
+  // Galerie
+  const imgPrincipale = document.getElementById("image-principale");
+  document.querySelectorAll("#galerie-miniatures button").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll("#galerie-miniatures button").forEach(b => b.classList.remove("actif"));
+      btn.classList.add("actif");
+      imgPrincipale.src = p.images[btn.dataset.i];
+    });
+  });
+  const galerie = document.getElementById("galerie-principale");
+  galerie.addEventListener("mousemove", (e) => {
+    const r = galerie.getBoundingClientRect();
+    galerie.style.setProperty("--zx", ((e.clientX - r.left) / r.width * 100) + "%");
+    galerie.style.setProperty("--zy", ((e.clientY - r.top) / r.height * 100) + "%");
+    galerie.classList.add("zoom");
+  });
+  galerie.addEventListener("mouseleave", () => galerie.classList.remove("zoom"));
+
+  // Quantité
+  document.getElementById("moins-qte").addEventListener("click", () => { quantite = Math.max(1, quantite-1); document.getElementById("valeur-qte").textContent = quantite; });
+  document.getElementById("plus-qte").addEventListener("click", () => { quantite = Math.min(p.stock, quantite+1); document.getElementById("valeur-qte").textContent = quantite; });
+  document.getElementById("btn-ajouter").addEventListener("click", () => SAV.ajouter(p.id, quantite));
+  document.getElementById("btn-envie").addEventListener("click", () => SAV.basculerEnvie(p.id));
+  document.getElementById("lien-avis").addEventListener("click", (e) => { e.preventDefault(); document.getElementById("onglet-btn-avis").click(); document.querySelector(".fp-onglets").scrollIntoView({behavior:"smooth"}); });
+  if(SAV.estEnvie(p.id)) document.getElementById("btn-envie").classList.add("actif");
+
+  // Suggestions
+  function carteProduit(prod){
+    return `
+    <a class="carte-produit" href="produit.html?id=${prod.id}">
+      <div class="carte-produit-img"><img src="${prod.image}" alt="${prod.nom}" loading="lazy"></div>
+      <div class="carte-produit-corps">
+        <div class="carte-produit-cat">${prod.categorie}</div>
+        <h3 class="carte-produit-nom">${prod.nom}</h3>
+        <div class="carte-produit-bas"><span class="prix">${SAV.formaterPrix(prod.prix)}</span></div>
+      </div>
+    </a>`;
+  }
+  const suggestions = PRODUITS.filter(x => x.id !== p.id && (x.categorie === p.categorie || x.ingredients.some(i => p.ingredients.includes(i)))).slice(0,4);
+  const complement = suggestions.length < 4 ? PRODUITS.filter(x => x.id !== p.id && !suggestions.includes(x)).slice(0, 4 - suggestions.length) : [];
+  document.getElementById("grille-suggestions").innerHTML = [...suggestions, ...complement].map(carteProduit).join("");
+})();
+</script>
+</body>
+</html>

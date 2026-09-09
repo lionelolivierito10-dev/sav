@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mon compte — Sarah-Anne Valère</title>
+<meta name="description" content="Connectez-vous à votre espace Sarah-Anne Valère : suivi de commandes, liste d'envies, informations personnelles.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="annonce-bar">Livraison offerte dès 90€ d'achat, partout dans le monde</div>
+<header class="entete">
+  <div class="entete-inner">
+    <a href="index.html" class="logo">Sarah-Anne <span>Valère</span></a>
+    <nav class="nav-principale" aria-label="Navigation principale">
+      <a href="boutique.html">Boutique</a>
+      <a href="boutique.html?categorie=Rituels">Rituels</a>
+      <a href="a-propos.html">La maison</a>
+      <a href="blog.html">Journal</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="entete-actions">
+      <a href="compte.html" class="icone-lien" aria-label="Mon compte"><svg viewBox="0 0 24 24"><path d="M12 12a4 4 0 100-8 4 4 0 000 8zM4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg></a>
+      <a href="compte.html?onglet=envies" class="icone-lien" aria-label="Liste d'envies"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.35-9.5-8.8C.7 8.7 2 5 5.6 5c2 0 3.4 1.2 4.4 2.8C11 6.2 12.4 5 14.4 5 18 5 19.3 8.7 17.5 12.2 15 16.65 12 21 12 21z"/></svg></a>
+      <button class="icone-lien" data-ouvrir-panier aria-label="Panier"><svg viewBox="0 0 24 24"><path d="M3 6h2l1.2 12.4A2 2 0 008.2 20h7.6a2 2 0 002-1.6L19 8H6"/><circle cx="9" cy="21" r="1"/><circle cx="17" cy="21" r="1"/></svg><span class="badge-panier">0</span></button>
+      <button class="nav-toggle" aria-label="Ouvrir le menu"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="nav-menu-mobile">
+  <button class="fermer-tiroir" aria-label="Fermer le menu">×</button>
+  <a href="boutique.html">Boutique</a>
+  <a href="a-propos.html">La maison</a>
+  <a href="blog.html">Journal</a>
+  <a href="contact.html">Contact</a>
+  <a href="compte.html">Mon compte</a>
+</div>
+
+<div class="tiroir-fond"></div>
+<div class="tiroir" role="dialog" aria-label="Panier">
+  <div class="tiroir-entete"><h3>Votre panier</h3><button class="fermer-tiroir fermer-tiroir-panier" aria-label="Fermer">×</button></div>
+  <div class="tiroir-corps"></div>
+  <div class="tiroir-pied"></div>
+</div>
+
+<main>
+  <div class="wrap section">
+
+    <div id="vue-connexion">
+      <div class="auth-conteneur">
+        <h1 class="center" style="margin-bottom:34px; font-size:clamp(1.9rem,3vw,2.4rem);">Mon compte</h1>
+        <div class="auth-bascule">
+          <button class="actif" id="btn-onglet-connexion">Connexion</button>
+          <button id="btn-onglet-inscription">Inscription</button>
+        </div>
+
+        <form id="form-connexion">
+          <div class="champ"><label for="co-email">Adresse e-mail</label><input id="co-email" type="email" required></div>
+          <div class="champ"><label for="co-mdp">Mot de passe</label><input id="co-mdp" type="password" required></div>
+          <p class="form-note" style="margin-bottom:20px;"><a href="#" style="text-decoration:underline;">Mot de passe oublié ?</a></p>
+          <button class="btn btn-primaire btn-large btn-bloc" type="submit">Se connecter</button>
+        </form>
+
+        <form id="form-inscription" style="display:none;">
+          <div class="grille-champs-2">
+            <div class="champ"><label for="in-prenom">Prénom</label><input id="in-prenom" required></div>
+            <div class="champ"><label for="in-nom">Nom</label><input id="in-nom" required></div>
+          </div>
+          <div class="champ"><label for="in-email">Adresse e-mail</label><input id="in-email" type="email" required></div>
+          <div class="champ"><label for="in-mdp">Mot de passe</label><input id="in-mdp" type="password" required minlength="8"></div>
+          <label class="filtre-option" style="margin-bottom:20px;"><input type="checkbox"> Je souhaite recevoir les actualités et offres de la maison</label>
+          <button class="btn btn-primaire btn-large btn-bloc" type="submit">Créer mon compte</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="vue-tableau-de-bord" style="display:none;">
+      <div class="section-entete">
+        <div>
+          <p class="eyebrow">Bonjour</p>
+          <h1 id="nom-client" style="font-size:clamp(1.9rem,3vw,2.4rem);">Votre espace</h1>
+        </div>
+        <button class="btn-fantome" id="btn-deconnexion">Se déconnecter</button>
+      </div>
+
+      <div class="mise-en-page-compte">
+        <nav class="compte-nav" data-onglets>
+          <button class="onglet-btn actif" data-cible="panneau-commandes">Mes commandes</button>
+          <button class="onglet-btn" data-cible="panneau-envies">Ma liste d'envies</button>
+          <button class="onglet-btn" data-cible="panneau-infos">Mes informations</button>
+          <button class="onglet-btn" data-cible="panneau-adresses">Mes adresses</button>
+        </nav>
+
+        <div>
+          <div class="onglet-panneau actif" id="panneau-commandes">
+            <table class="tableau-commandes">
+              <thead><tr><th>Commande</th><th>Date</th><th>Statut</th><th>Total</th></tr></thead>
+              <tbody>
+                <tr><td>SAV-482913</td><td>2 sept. 2026</td><td><span class="statut statut-transit">En transit</span></td><td>112,00 €</td></tr>
+                <tr><td>SAV-471255</td><td>18 juil. 2026</td><td><span class="statut statut-livre">Livrée</span></td><td>78,00 €</td></tr>
+                <tr><td>SAV-460102</td><td>3 juin 2026</td><td><span class="statut statut-livre">Livrée</span></td><td>196,00 €</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="onglet-panneau" id="panneau-envies">
+            <div class="grille-wishlist" id="grille-wishlist-compte"></div>
+          </div>
+
+          <div class="onglet-panneau" id="panneau-infos">
+            <div class="grille-champs-2">
+              <div class="champ"><label for="mi-prenom">Prénom</label><input id="mi-prenom" value="Aïcha"></div>
+              <div class="champ"><label for="mi-nom">Nom</label><input id="mi-nom" value="Konan"></div>
+            </div>
+            <div class="champ"><label for="mi-email">E-mail</label><input id="mi-email" type="email" value="aicha.konan@example.com"></div>
+            <div class="champ"><label for="mi-tel">Téléphone</label><input id="mi-tel" type="tel" value="+225 07 00 00 00 00"></div>
+            <button class="btn btn-primaire">Enregistrer les modifications</button>
+          </div>
+
+          <div class="onglet-panneau" id="panneau-adresses">
+            <div style="border:1px solid var(--sable-fonce); border-radius:var(--rayon); padding:22px; margin-bottom:18px;">
+              <p style="font-weight:700; margin-bottom:6px;">Adresse principale</p>
+              <p class="lede">12 rue des Oliviers, 06130 Grasse, France</p>
+            </div>
+            <button class="btn btn-contour">Ajouter une adresse</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer class="pied">
+  <div class="wrap">
+    <div class="pied-grille">
+      <div>
+        <div class="pied-logo">Sarah-Anne Valère</div>
+        <p class="pied-baseline">Cosmétique botanique formulée en Provence, vegan et non testée sur les animaux.</p>
+        <div class="reseaux">
+          <a href="https://instagram.com" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8"/></svg></a>
+          <a href="https://pinterest.com" aria-label="Pinterest" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 19c1-3 2-7 2-9a2 2 0 114 0c0 1.5-1 4-2 5.5"/></svg></a>
+          <a href="https://facebook.com" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M15 8h-2a2 2 0 00-2 2v10M9 13h6"/><circle cx="12" cy="12" r="9"/></svg></a>
+        </div>
+      </div>
+      <div><h4>Boutique</h4><ul><li><a href="boutique.html">Soins visage</a></li><li><a href="boutique.html">Soins corps</a></li><li><a href="boutique.html">Parfums</a></li><li><a href="boutique.html">Rituels &amp; coffrets</a></li></ul></div>
+      <div><h4>La maison</h4><ul><li><a href="a-propos.html">Notre histoire</a></li><li><a href="a-propos.html#engagements">Engagements</a></li><li><a href="blog.html">Journal</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><h4>Aide</h4><ul><li><a href="contact.html#faq">FAQ</a></li><li><a href="panier.html">Livraison &amp; retours</a></li><li><a href="mentions-legales.html">Mentions légales</a></li><li><a href="confidentialite.html">Confidentialité</a></li></ul></div>
+    </div>
+    <div class="pied-bas">
+      <span>© 2026 Sarah-Anne Valère. Tous droits réservés.</span>
+      <div class="paiements"><span>Visa</span><span>Mastercard</span><span>PayPal</span><span>Apple Pay</span></div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+<script>
+  const btnCo = document.getElementById("btn-onglet-connexion");
+  const btnIn = document.getElementById("btn-onglet-inscription");
+  const formCo = document.getElementById("form-connexion");
+  const formIn = document.getElementById("form-inscription");
+  btnCo.addEventListener("click", () => { btnCo.classList.add("actif"); btnIn.classList.remove("actif"); formCo.style.display="block"; formIn.style.display="none"; });
+  btnIn.addEventListener("click", () => { btnIn.classList.add("actif"); btnCo.classList.remove("actif"); formIn.style.display="block"; formCo.style.display="none"; });
+
+  function afficherTableauDeBord(prenom){
+    document.getElementById("vue-connexion").style.display = "none";
+    document.getElementById("vue-tableau-de-bord").style.display = "block";
+    document.getElementById("nom-client").textContent = prenom ? `Bonjour, ${prenom}` : "Votre espace";
+    document.getElementById("grille-wishlist-compte").innerHTML = SAV.lireEnvies().length
+      ? SAV.lireEnvies().map(id => PRODUITS.find(p => p.id === id)).filter(Boolean).map(p => `
+        <a class="carte-produit" href="produit.html?id=${p.id}">
+          <div class="carte-produit-img"><img src="${p.image}" alt="${p.nom}"></div>
+          <div class="carte-produit-corps"><h3 class="carte-produit-nom">${p.nom}</h3><span class="prix">${SAV.formaterPrix(p.prix)}</span></div>
+        </a>`).join("")
+      : `<p class="lede">Votre liste d'envies est vide. Parcourez la <a href="boutique.html" style="text-decoration:underline;">boutique</a> pour ajouter vos coups de cœur.</p>`;
+    if(new URLSearchParams(location.search).get("onglet") === "envies"){
+      document.querySelector('[data-cible="panneau-envies"]')?.click();
+    }
+  }
+
+  formCo.addEventListener("submit", (e) => { e.preventDefault(); localStorage.setItem("sav_session", "1"); afficherTableauDeBord("Aïcha"); });
+  formIn.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const prenom = document.getElementById("in-prenom").value;
+    localStorage.setItem("sav_session", "1");
+    SAV.toast("Bienvenue chez Sarah-Anne Valère !");
+    afficherTableauDeBord(prenom);
+  });
+  document.getElementById("btn-deconnexion").addEventListener("click", () => {
+    localStorage.removeItem("sav_session");
+    document.getElementById("vue-tableau-de-bord").style.display = "none";
+    document.getElementById("vue-connexion").style.display = "block";
+  });
+
+  if(localStorage.getItem("sav_session")) afficherTableauDeBord("Aïcha");
+  else if(new URLSearchParams(location.search).get("onglet") === "envies"){
+    // Visiteur non connecté consultant ses envies : on affiche quand même la liste (stockée localement)
+    afficherTableauDeBord(null);
+    document.getElementById("btn-deconnexion").style.display = "none";
+    document.querySelectorAll(".compte-nav button:not([data-cible='panneau-envies'])").forEach(b => b.style.display = "none");
+    document.querySelector('[data-cible="panneau-envies"]')?.click();
+  }
+</script>
+</body>
+</html>

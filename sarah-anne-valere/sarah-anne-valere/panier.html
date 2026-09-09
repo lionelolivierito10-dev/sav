@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panier &amp; commande — Sarah-Anne Valère</title>
+<meta name="description" content="Finalisez votre commande Sarah-Anne Valère : livraison, paiement sécurisé, codes promo.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="annonce-bar">Livraison offerte dès 90€ d'achat, partout dans le monde</div>
+<header class="entete">
+  <div class="entete-inner">
+    <a href="index.html" class="logo">Sarah-Anne <span>Valère</span></a>
+    <nav class="nav-principale" aria-label="Navigation principale">
+      <a href="boutique.html">Boutique</a>
+      <a href="boutique.html?categorie=Rituels">Rituels</a>
+      <a href="a-propos.html">La maison</a>
+      <a href="blog.html">Journal</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="entete-actions">
+      <a href="compte.html" class="icone-lien" aria-label="Mon compte"><svg viewBox="0 0 24 24"><path d="M12 12a4 4 0 100-8 4 4 0 000 8zM4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg></a>
+      <a href="compte.html?onglet=envies" class="icone-lien" aria-label="Liste d'envies"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.35-9.5-8.8C.7 8.7 2 5 5.6 5c2 0 3.4 1.2 4.4 2.8C11 6.2 12.4 5 14.4 5 18 5 19.3 8.7 17.5 12.2 15 16.65 12 21 12 21z"/></svg></a>
+      <button class="icone-lien" data-ouvrir-panier aria-label="Panier"><svg viewBox="0 0 24 24"><path d="M3 6h2l1.2 12.4A2 2 0 008.2 20h7.6a2 2 0 002-1.6L19 8H6"/><circle cx="9" cy="21" r="1"/><circle cx="17" cy="21" r="1"/></svg><span class="badge-panier">0</span></button>
+      <button class="nav-toggle" aria-label="Ouvrir le menu"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="nav-menu-mobile">
+  <button class="fermer-tiroir" aria-label="Fermer le menu">×</button>
+  <a href="boutique.html">Boutique</a>
+  <a href="a-propos.html">La maison</a>
+  <a href="blog.html">Journal</a>
+  <a href="contact.html">Contact</a>
+  <a href="compte.html">Mon compte</a>
+</div>
+
+<div class="tiroir-fond"></div>
+<div class="tiroir" role="dialog" aria-label="Panier">
+  <div class="tiroir-entete"><h3>Votre panier</h3><button class="fermer-tiroir fermer-tiroir-panier" aria-label="Fermer">×</button></div>
+  <div class="tiroir-corps"></div>
+  <div class="tiroir-pied"></div>
+</div>
+
+<main>
+  <div class="wrap section">
+    <h1 style="margin-bottom:40px; font-size:clamp(2rem,3vw,2.6rem);">Votre commande</h1>
+
+    <div class="etapes">
+      <div class="etape actif" data-etape="1">Panier</div>
+      <div class="etape" data-etape="2">Livraison</div>
+      <div class="etape" data-etape="3">Paiement</div>
+      <div class="etape" data-etape="4">Confirmation</div>
+    </div>
+
+    <div id="etape-1">
+      <div class="mise-en-page-panier">
+        <div id="liste-panier"></div>
+        <aside class="recap-commande">
+          <h3 style="margin-bottom:18px;">Résumé</h3>
+          <div id="recap-lignes"></div>
+          <form class="promo-form" id="form-promo">
+            <input type="text" placeholder="Code promo" id="champ-promo" aria-label="Code promo">
+            <button class="btn btn-contour btn-sm" type="submit">Appliquer</button>
+          </form>
+          <p class="form-note" id="message-promo"></p>
+          <div class="recap-total"><span>Total</span><span id="recap-total">0,00 €</span></div>
+          <button class="btn btn-primaire btn-large btn-bloc" style="margin-top:22px;" id="btn-vers-livraison">Passer à la livraison</button>
+          <p class="form-note" style="text-align:center; margin-top:14px;"><a href="boutique.html" style="text-decoration:underline;">Continuer mes achats</a></p>
+        </aside>
+      </div>
+    </div>
+
+    <div id="etape-2" style="display:none; max-width:640px;">
+      <form id="form-livraison">
+        <div class="grille-champs-2">
+          <div class="champ"><label for="prenom">Prénom</label><input id="prenom" required></div>
+          <div class="champ"><label for="nom">Nom</label><input id="nom" required></div>
+        </div>
+        <div class="champ"><label for="adresse">Adresse</label><input id="adresse" required></div>
+        <div class="grille-champs-2">
+          <div class="champ"><label for="ville">Ville</label><input id="ville" required></div>
+          <div class="champ"><label for="cp">Code postal</label><input id="cp" required></div>
+        </div>
+        <div class="grille-champs-2">
+          <div class="champ"><label for="pays">Pays</label>
+            <select id="pays"><option>France</option><option>Belgique</option><option>Suisse</option><option>Côte d'Ivoire</option><option>Canada</option><option>Autre</option></select>
+          </div>
+          <div class="champ"><label for="tel">Téléphone</label><input id="tel" type="tel" required></div>
+        </div>
+        <div style="display:flex; gap:12px; margin-top:10px;">
+          <button type="button" class="btn btn-contour" onclick="allerEtape(1)">Retour</button>
+          <button type="submit" class="btn btn-primaire btn-large" style="flex:1;">Passer au paiement</button>
+        </div>
+      </form>
+    </div>
+
+    <div id="etape-3" style="display:none; max-width:640px;">
+      <form id="form-paiement">
+        <div class="grille-paiement">
+          <label class="option-paiement"><input type="radio" name="paiement" value="carte" checked> Carte bancaire</label>
+          <label class="option-paiement"><input type="radio" name="paiement" value="paypal"> PayPal</label>
+          <label class="option-paiement"><input type="radio" name="paiement" value="applepay"> Apple Pay</label>
+          <label class="option-paiement"><input type="radio" name="paiement" value="virement"> Virement instantané</label>
+        </div>
+        <div id="champs-carte">
+          <div class="champ"><label for="carte-numero">Numéro de carte</label><input id="carte-numero" placeholder="0000 0000 0000 0000" required></div>
+          <div class="grille-champs-2">
+            <div class="champ"><label for="carte-exp">Expiration</label><input id="carte-exp" placeholder="MM/AA" required></div>
+            <div class="champ"><label for="carte-cvc">CVC</label><input id="carte-cvc" placeholder="123" required></div>
+          </div>
+        </div>
+        <p class="form-note" style="margin-bottom:20px;">Paiement chiffré et sécurisé. Vos informations bancaires ne sont jamais stockées sur nos serveurs.</p>
+        <div style="display:flex; gap:12px;">
+          <button type="button" class="btn btn-contour" onclick="allerEtape(2)">Retour</button>
+          <button type="submit" class="btn btn-primaire btn-large" style="flex:1;">Valider la commande</button>
+        </div>
+      </form>
+    </div>
+
+    <div id="etape-4" style="display:none;">
+      <div class="confirmation-commande">
+        <div class="confirmation-icone"><svg viewBox="0 0 24 24"><polyline points="4,13 9,18 20,6"/></svg></div>
+        <h2 style="margin-bottom:14px;">Merci, votre commande est confirmée</h2>
+        <p class="lede center" style="margin-bottom:8px;">Un e-mail de confirmation avec le numéro de suivi vous sera envoyé dès l'expédition, sous 24 à 48h.</p>
+        <p class="form-note" style="margin-bottom:30px;">Numéro de commande : <strong id="numero-commande"></strong></p>
+        <a href="boutique.html" class="btn btn-primaire btn-large">Continuer mes achats</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="pied">
+  <div class="wrap">
+    <div class="pied-grille">
+      <div>
+        <div class="pied-logo">Sarah-Anne Valère</div>
+        <p class="pied-baseline">Cosmétique botanique formulée en Provence, vegan et non testée sur les animaux.</p>
+        <div class="reseaux">
+          <a href="https://instagram.com" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8"/></svg></a>
+          <a href="https://pinterest.com" aria-label="Pinterest" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 19c1-3 2-7 2-9a2 2 0 114 0c0 1.5-1 4-2 5.5"/></svg></a>
+          <a href="https://facebook.com" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M15 8h-2a2 2 0 00-2 2v10M9 13h6"/><circle cx="12" cy="12" r="9"/></svg></a>
+        </div>
+      </div>
+      <div><h4>Boutique</h4><ul><li><a href="boutique.html">Soins visage</a></li><li><a href="boutique.html">Soins corps</a></li><li><a href="boutique.html">Parfums</a></li><li><a href="boutique.html">Rituels &amp; coffrets</a></li></ul></div>
+      <div><h4>La maison</h4><ul><li><a href="a-propos.html">Notre histoire</a></li><li><a href="a-propos.html#engagements">Engagements</a></li><li><a href="blog.html">Journal</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><h4>Aide</h4><ul><li><a href="contact.html#faq">FAQ</a></li><li><a href="panier.html">Livraison &amp; retours</a></li><li><a href="mentions-legales.html">Mentions légales</a></li><li><a href="confidentialite.html">Confidentialité</a></li></ul></div>
+    </div>
+    <div class="pied-bas">
+      <span>© 2026 Sarah-Anne Valère. Tous droits réservés.</span>
+      <div class="paiements"><span>Visa</span><span>Mastercard</span><span>PayPal</span><span>Apple Pay</span></div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+<script>
+  let remise = 0;
+
+  function rafraichirPagePanier(){
+    const lignes = SAV.detailPanier();
+    const liste = document.getElementById("liste-panier");
+    const btnLivraison = document.getElementById("btn-vers-livraison");
+    if(lignes.length === 0){
+      liste.innerHTML = `<div class="panier-vide"><h3 style="margin-bottom:12px;">Votre panier est vide</h3><p class="lede center" style="margin:0 auto 24px;">Découvrez nos soins phares et composez votre rituel.</p><a href="boutique.html" class="btn btn-primaire">Voir la boutique</a></div>`;
+      btnLivraison.disabled = true;
+    } else {
+      btnLivraison.disabled = false;
+      liste.innerHTML = lignes.map(l => `
+        <div class="ligne-panier">
+          <img src="${l.produit.image}" alt="${l.produit.nom}">
+          <div>
+            <h4>${l.produit.nom}</h4>
+            <div class="ligne-panier-meta">${l.produit.categorie} · ${SAV.formaterPrix(l.produit.prix)}</div>
+          </div>
+          <div class="ligne-panier-droite">
+            <div class="quantite">
+              <button aria-label="Diminuer" onclick="SAV.modifierQuantite('${l.id}', ${l.quantite - 1})">−</button>
+              <span>${l.quantite}</span>
+              <button aria-label="Augmenter" onclick="SAV.modifierQuantite('${l.id}', ${l.quantite + 1})">+</button>
+            </div>
+            <strong>${SAV.formaterPrix(l.produit.prix * l.quantite)}</strong>
+            <button class="lien-retirer" onclick="SAV.retirer('${l.id}'); rafraichirPagePanier();">Retirer</button>
+          </div>
+        </div>
+      `).join("");
+    }
+    const sousTotal = SAV.sousTotal();
+    const livraison = sousTotal === 0 || sousTotal >= SAV.SEUIL_LIVRAISON_OFFERTE ? 0 : SAV.FRAIS_LIVRAISON;
+    const reduction = sousTotal * remise;
+    const total = Math.max(0, sousTotal - reduction + livraison);
+    document.getElementById("recap-lignes").innerHTML = `
+      <div class="recap-ligne"><span>Sous-total</span><span>${SAV.formaterPrix(sousTotal)}</span></div>
+      ${remise > 0 ? `<div class="recap-ligne"><span>Réduction (${Math.round(remise*100)}%)</span><span>− ${SAV.formaterPrix(reduction)}</span></div>` : ""}
+      <div class="recap-ligne"><span>Livraison estimée</span><span>${livraison === 0 ? "Offerte" : SAV.formaterPrix(livraison)}</span></div>
+    `;
+    document.getElementById("recap-total").textContent = SAV.formaterPrix(total);
+  }
+  window.rafraichirPagePanier = rafraichirPagePanier;
+
+  document.getElementById("form-promo").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const code = document.getElementById("champ-promo").value;
+    const taux = SAV.appliquerPromo(code);
+    const msg = document.getElementById("message-promo");
+    if(taux > 0){ remise = taux; msg.textContent = `Code appliqué : -${Math.round(taux*100)}% sur votre commande.`; msg.style.color = "var(--verdant)"; }
+    else { remise = 0; msg.textContent = "Ce code n'est pas valide ou a expiré."; msg.style.color = "var(--erreur)"; }
+    rafraichirPagePanier();
+  });
+
+  function allerEtape(n){
+    [1,2,3,4].forEach(i => document.getElementById("etape-"+i).style.display = i === n ? "block" : "none");
+    document.querySelectorAll(".etape").forEach(el => {
+      const e = Number(el.dataset.etape);
+      el.classList.toggle("actif", e === n);
+      el.classList.toggle("termine", e < n);
+    });
+    window.scrollTo({top:0, behavior:"smooth"});
+  }
+  window.allerEtape = allerEtape;
+
+  document.getElementById("btn-vers-livraison").addEventListener("click", () => allerEtape(2));
+  document.getElementById("form-livraison").addEventListener("submit", (e) => { e.preventDefault(); allerEtape(3); });
+  document.querySelectorAll('input[name="paiement"]').forEach(r => r.addEventListener("change", (e) => {
+    document.getElementById("champs-carte").style.display = e.target.value === "carte" ? "block" : "none";
+  }));
+  document.getElementById("form-paiement").addEventListener("submit", (e) => {
+    e.preventDefault();
+    document.getElementById("numero-commande").textContent = "SAV-" + Math.floor(100000 + Math.random()*900000);
+    SAV.ecrirePanier([]);
+    remise = 0;
+    allerEtape(4);
+  });
+
+  rafraichirPagePanier();
+</script>
+</body>
+</html>
