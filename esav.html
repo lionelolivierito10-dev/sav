@@ -1,0 +1,2885 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sarah-Anne VALÈRE | Cosmétiques 100% faits main</title>
+  <meta name="description" content="Découvrez Sarah-Anne VALÈRE : cosmétiques 100% faits main, santé par les plantes. Livraison offerte dès 499₹. Profitez de -25% avec le code PURELIS25.">
+  
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ===== CSS RESET & VARIABLES ===== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --color-primary: #8b3a5c;
+      --color-primary-dark: #5c2340;
+      --color-primary-hover: #451a30;  
+      --color-primary-light: #b06d8a;  
+      --color-bg-hero: #f4dfe6;
+      --color-bg-card: #f9e6ed;        
+      --color-bg-promo: #dbbcc8;       
+      --color-bg-footer: #efe0e6;      
+      --color-text-dark: #2d2328;      
+      --color-text-muted: #5e4650;     
+      --color-border: #d9bfca;         
+      --color-accent-gold: #b89b7b;    
+      --color-leaf: #4f7a4b;
+      --color-leaf-light: #7fa37a;
+      --color-leaf-soft: #e2ede0;
+      
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      
+      --radius-sm: 4px;
+      --radius-md: 6px;
+      --radius-lg: 12px;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.02);
+      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.04);
+      --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.06);
+      --transition: all 0.25s ease;
+      --header-height: 100px;
+
+      /* ═══════════════════════════════════════════════════════════════
+         🖼️  IMAGES DU SITE — MODIFIEZ UNIQUEMENT ICI
+         ═══════════════════════════════════════════════════════════════
+         
+         👉 Pour changer une image, remplacez simplement le chemin.
+         👉 Placez vos images dans un dossier "images/" à côté de ce fichier.
+         
+         📐 TAILLES RECOMMANDÉES :
+            • Hero accueil / promo : 1920×1080 px
+            • Bannières onglets    : 1920×600 px
+            • Logos                : 400×400 px (fond transparent PNG)
+         ═══════════════════════════════════════════════════════════════ */
+      
+      /* --- Logos --- */
+      --img-logo:           url('Sarah-Anne.png');
+      --img-logo-designer:  url('logo.png');
+
+      /* --- Hero page d'accueil --- */
+      --img-hero-accueil:   url('hero.png');
+      
+      /* --- Bannière promo (accueil) --- */
+      --img-promo:          url('promo.png');
+
+      /* --- Bannières des onglets --- */
+      --img-hero-boutique:     url('boutique.png');
+      --img-hero-collections:  url('collection.png');
+      --img-hero-apropos:      url('images/hero-apropos.jpg');
+      --img-hero-blog:         url('images/hero-blog.jpg');
+      --img-hero-contact:      url('images/hero-contact.jpg');
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--color-text-dark);
+      background-color: #ffffff;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition);
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+      transition: var(--transition);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ===== HEADER ===== */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: transparent;
+      border-bottom: 1px solid transparent;
+      transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+    }
+    .site-header.scrolled {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-border);
+      box-shadow: var(--shadow-sm);
+    }
+    .site-header.solid {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: var(--header-height);
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      flex-shrink: 0;
+    }
+    .brand-logo:hover {
+      transform: scale(1.02);
+    }
+    .brand-logo-img {
+      height: 90px;
+      width: auto;
+      object-fit: contain;
+      transition: var(--transition);
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      list-style: none;
+    }
+    .nav-link {
+      font-size: 12.5px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: #3d2e35;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      position: relative;
+      padding-bottom: 2px;
+      cursor: pointer;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background: var(--color-primary);
+      transition: width 0.25s;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    .nav-link:hover {
+      color: var(--color-primary);
+    }
+    .caret-down {
+      font-size: 10px;
+      opacity: 0.7;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .action-btn {
+      color: #3d2e35;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 4px;
+      border-radius: 50%;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+    .action-btn:hover {
+      color: var(--color-primary);
+      background: rgba(139, 58, 92, 0.1);
+    }
+    .action-btn svg {
+      width: 20px;
+      height: 20px;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      fill: none;
+    }
+    .badge {
+      position: absolute;
+      top: -6px;
+      right: -8px;
+      background: var(--color-primary-dark);
+      color: white;
+      font-size: 10px;
+      font-weight: 600;
+      width: 17px;
+      height: 17px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid white;
+      transition: transform 0.3s ease;
+    }
+    .badge.bump {
+      animation: bump 0.4s ease;
+    }
+    @keyframes bump {
+      0%   { transform: scale(1); }
+      40%  { transform: scale(1.5); }
+      70%  { transform: scale(0.9); }
+      100% { transform: scale(1); }
+    }
+
+    /* ===== SÉLECTEUR DE DEVISE ===== */
+    .currency-selector {
+      position: relative;
+    }
+    .currency-btn {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: #3d2e35;
+      padding: 6px 10px;
+      border: 1px solid var(--color-border);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.6);
+      transition: var(--transition);
+    }
+    .currency-btn:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+    }
+    .currency-btn svg {
+      width: 12px;
+      height: 12px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+    }
+    .currency-dropdown {
+      position: absolute;
+      top: calc(100% + 6px);
+      right: 0;
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+      padding: 6px 0;
+      min-width: 110px;
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(6px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      z-index: 100;
+    }
+    .currency-selector.open .currency-dropdown {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    .currency-option {
+      padding: 8px 16px;
+      font-size: 12px;
+      font-weight: 500;
+      color: #3d2e35;
+      text-align: left;
+      white-space: nowrap;
+    }
+    .currency-option:hover {
+      background: var(--color-bg-card);
+      color: var(--color-primary);
+    }
+    .currency-option.active {
+      color: var(--color-primary);
+      font-weight: 700;
+      background: var(--color-bg-card);
+    }
+
+    /* ===== TOAST ===== */
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--color-primary-dark);
+      color: white;
+      padding: 16px 22px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 500;
+      box-shadow: var(--shadow-lg);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      opacity: 0;
+      transform: translateY(20px);
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      max-width: 340px;
+    }
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .toast svg {
+      width: 18px;
+      height: 18px;
+      stroke: white;
+      stroke-width: 2.4;
+      fill: none;
+      flex-shrink: 0;
+    }
+
+    /* ===== PAGE SYSTEM ===== */
+    .page {
+      display: none;
+    }
+    .page.active {
+      display: block;
+    }
+
+    /* ===== HERO ACCUEIL ===== */
+    .hero-section {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      padding: 0;
+      background-image: var(--img-hero-accueil);
+      background-size: cover;
+      background-position: center right;
+      background-repeat: no-repeat;
+    }
+
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        90deg,
+        rgba(244, 223, 230, 0.96) 0%,
+        rgba(244, 223, 230, 0.85) 35%,
+        rgba(244, 223, 230, 0.4) 60%,
+        rgba(244, 223, 230, 0) 100%
+      );
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 2;
+      display: block;
+      width: 100%;
+      padding-top: calc(var(--header-height) + 60px);
+      padding-bottom: 80px;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    .hero-content {
+      max-width: 580px;
+    }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: 60px;
+      line-height: 1.05;
+      font-weight: 600;
+      color: var(--color-text-dark);
+      letter-spacing: -0.02em;
+    }
+    .hero-title-accent {
+      color: var(--color-primary);
+      font-weight: 700;
+      display: block;
+      margin-top: 6px;
+      font-style: italic;
+      font-size: 0.95em;
+      letter-spacing: -0.01em;
+    }
+    .hero-desc {
+      margin-top: 24px;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #4a3740;
+      max-width: 460px;
+      font-weight: 400;
+    }
+    .btn-primary {
+      display: inline-block;
+      margin-top: 36px;
+      background: var(--color-primary-dark);
+      color: white;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding: 16px 40px;
+      border-radius: var(--radius-sm);
+      box-shadow: 0 4px 12px rgba(92, 35, 64, 0.25);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .btn-primary::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+      transition: left 0.5s;
+    }
+    .btn-primary:hover::after {
+      left: 100%;
+    }
+    .btn-primary:hover {
+      background: var(--color-primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(92, 35, 64, 0.35);
+    }
+
+    /* ===== FEATURES ===== */
+    .features-section {
+      background: #ffffff;
+      border-bottom: 1px solid var(--color-border);
+      padding: 32px 0;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 8px 12px;
+      border-radius: var(--radius-md);
+      transition: var(--transition);
+    }
+    .feature-item:hover {
+      background: rgba(139, 58, 92, 0.06);
+    }
+    .feature-icon svg {
+      width: 34px;
+      height: 34px;
+      stroke: var(--color-leaf);
+      stroke-width: 1.5;
+      fill: none;
+      transition: var(--transition);
+    }
+    .feature-item:hover .feature-icon svg {
+      stroke: var(--color-leaf-light);
+      transform: scale(1.05);
+    }
+    .feature-title {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #2d2328;
+      letter-spacing: 0.01em;
+    }
+    .feature-subtitle {
+      font-size: 12px;
+      color: var(--color-text-muted);
+      margin-top: 2px;
+      line-height: 1.4;
+    }
+
+    /* ===== SECTION TITLES ===== */
+    .section-category,
+    .section-arrivals,
+    .section-page-content {
+      padding: 80px 0;
+      background: #ffffff;
+    }
+    .section-title-wrap {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: 32px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-text-dark);
+      position: relative;
+      display: inline-block;
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 2px;
+      background: var(--color-primary);
+      opacity: 0.7;
+    }
+
+    /* ===== CATEGORY ===== */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 18px;
+    }
+    .category-card {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: var(--transition);
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .category-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--color-primary-light);
+    }
+    .category-img-box {
+      width: 100%;
+      aspect-ratio: 4/4.8;
+      overflow: hidden;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--color-bg-hero);
+      transition: var(--transition);
+    }
+    .category-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .category-card:hover .category-img-box img {
+      transform: scale(1.07);
+    }
+    .category-btn {
+      width: 100%;
+      background: #ffffff;
+      padding: 14px 6px;
+      text-align: center;
+      border-top: 1px solid var(--color-border);
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #3d2e35;
+      transition: var(--transition);
+    }
+    .category-card:hover .category-btn {
+      background: var(--color-primary-dark);
+      color: white;
+      border-top-color: var(--color-primary-dark);
+    }
+
+    /* ===== PROMO ===== */
+    .promo-banner-section {
+      padding: 20px 0 60px 0;
+    }
+
+    .promo-box {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      min-height: 520px;
+      display: flex;
+      align-items: center;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--color-border);
+      background-image: var(--img-promo);
+      background-size: cover;
+      background-position: center right;
+      background-repeat: no-repeat;
+    }
+
+    .promo-box::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        90deg,
+        rgba(219, 188, 200, 0.97) 0%,
+        rgba(219, 188, 200, 0.88) 30%,
+        rgba(219, 188, 200, 0.55) 55%,
+        rgba(219, 188, 200, 0.1) 85%,
+        rgba(219, 188, 200, 0) 100%
+      );
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .promo-content {
+      position: relative;
+      z-index: 2;
+      padding: 60px 56px;
+      max-width: 560px;
+      width: 100%;
+    }
+
+    .promo-tagline {
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--color-primary-dark);
+      display: block;
+      line-height: 1.6;
+    }
+    .promo-headline {
+      font-family: var(--font-serif);
+      font-size: 52px;
+      font-weight: 500;
+      line-height: 1.1;
+      color: var(--color-text-dark);
+      margin: 16px 0 24px 0;
+      letter-spacing: -0.01em;
+    }
+    .promo-headline span {
+      display: block;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--color-primary);
+      font-size: 0.85em;
+    }
+    .promo-badges {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(0,0,0,0.1);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+    .promo-badge-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 500;
+      color: #3d2e35;
+      letter-spacing: 0.02em;
+    }
+    .badge-circle {
+      width: 24px;
+      height: 24px;
+      border: 1px solid var(--color-leaf);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      flex-shrink: 0;
+    }
+    .promo-badge-item:hover .badge-circle {
+      background: var(--color-leaf);
+      border-color: var(--color-leaf);
+    }
+    .badge-circle svg {
+      width: 12px;
+      height: 12px;
+      stroke: var(--color-leaf);
+      stroke-width: 2;
+      fill: none;
+      transition: var(--transition);
+    }
+    .promo-badge-item:hover .badge-circle svg {
+      stroke: white;
+    }
+
+    /* ===== ARRIVALS ===== */
+    .section-arrivals {
+      padding: 70px 0 90px 0;
+      background: #ffffff;
+    }
+    .arrivals-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--color-border);
+      padding-bottom: 14px;
+      margin-bottom: 44px;
+    }
+    .arrivals-title {
+      font-family: var(--font-serif);
+      font-size: 30px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-text-dark);
+      text-align: center;
+      flex: 1;
+    }
+    .view-all-link {
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--color-text-dark);
+      text-decoration: underline;
+      text-underline-offset: 5px;
+      text-decoration-thickness: 1.5px;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+    .view-all-link:hover {
+      color: var(--color-primary);
+      text-decoration-color: var(--color-primary);
+    }
+    .arrivals-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+    }
+    .product-card {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition);
+      overflow: hidden;
+    }
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--color-primary-light);
+    }
+    .product-img-box {
+      background: var(--color-bg-card);
+      aspect-ratio: 4/4.3;
+      padding: 0;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .product-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .product-card:hover .product-img-box img {
+      transform: scale(1.06);
+    }
+    .wishlist-icon {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(4px);
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-text-muted);
+      transition: var(--transition);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .wishlist-icon:hover {
+      color: var(--color-primary);
+      background: white;
+      transform: scale(1.1);
+    }
+    .wishlist-icon svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      fill: none;
+    }
+    .product-info {
+      padding: 20px 18px 22px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .product-name {
+      font-size: 14px;
+      font-weight: 500;
+      color: #2d2328;
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+    .product-price {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--color-primary-dark);
+      margin-bottom: 18px;
+      letter-spacing: 0.02em;
+    }
+    .btn-add-cart {
+      margin-top: auto;
+      background: var(--color-primary-dark);
+      color: white;
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 12px 18px;
+      width: 100%;
+      border-radius: var(--radius-sm);
+      transition: var(--transition);
+    }
+    .btn-add-cart:hover {
+      background: var(--color-primary-hover);
+      letter-spacing: 0.22em;
+    }
+    .btn-add-cart.added {
+      background: var(--color-leaf);
+    }
+
+    /* ===== FOOTER ===== */
+    .site-footer {
+      background: var(--color-bg-footer);
+      border-top: 1px solid var(--color-border);
+      padding: 70px 0 30px 0;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 48px;
+      margin-bottom: 56px;
+      justify-items: center;
+      text-align: center;
+    }
+    .footer-grid > div {
+      max-width: 480px;
+      width: 100%;
+    }
+    .footer-col-title {
+      font-size: 12.5px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #2d2328;
+      margin-bottom: 12px;
+    }
+    .footer-text {
+      font-size: 12.5px;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+    .newsletter-form {
+      display: flex;
+      margin: 16px auto 0;
+      max-width: 400px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    .newsletter-input {
+      flex: 1;
+      padding: 12px 16px;
+      font-size: 12px;
+      border: 1px solid var(--color-border);
+      border-right: none;
+      background: white;
+      outline: none;
+      transition: var(--transition);
+    }
+    .newsletter-input:focus {
+      border-color: var(--color-primary);
+      box-shadow: inset 0 0 0 1px var(--color-primary);
+    }
+    .newsletter-btn {
+      background: var(--color-primary-dark);
+      color: white;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 12px 20px;
+      transition: var(--transition);
+    }
+    .newsletter-btn:hover {
+      background: var(--color-primary-hover);
+    }
+    .social-links {
+      display: flex;
+      gap: 14px;
+      margin-top: 24px;
+      justify-content: center;
+    }
+    .social-icon {
+      width: 32px;
+      height: 32px;
+      border: 1px solid var(--color-primary-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-text-muted);
+      transition: var(--transition);
+    }
+    .social-icon:hover {
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+      color: white;
+      transform: translateY(-2px);
+    }
+    .social-icon svg {
+      width: 15px;
+      height: 15px;
+      fill: currentColor;
+    }
+    .footer-bottom {
+      border-top: 1px solid var(--color-border);
+      padding-top: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11.5px;
+      color: var(--color-text-muted);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-bottom p {
+      display: inline-flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2px;
+    }
+    .designer-link {
+      display: inline-flex;
+      align-items: center;
+      vertical-align: middle;
+      text-decoration: none;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+    .designer-link:hover {
+      transform: scale(1.05);
+    }
+    .designer-logo {
+      display: inline-block;
+      height: 55px;
+      width: auto;
+      vertical-align: middle;
+      margin-left: 8px;
+      opacity: 0.85;
+      transition: var(--transition);
+    }
+    .designer-link:hover .designer-logo {
+      opacity: 1;
+    }
+    .footer-legal-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .footer-legal-links a {
+      transition: var(--transition);
+    }
+    .footer-legal-links a:hover {
+      color: var(--color-primary);
+    }
+
+    /* ===== PAGE HERO (onglets) ===== */
+    .page-hero {
+      position: relative;
+      background-color: var(--color-bg-hero);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      padding: 100px 0;
+      padding-top: calc(var(--header-height) + 80px);
+      text-align: center;
+      border-bottom: 1px solid var(--color-border);
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(244, 223, 230, 0.85) 0%,
+        rgba(244, 223, 230, 0.75) 100%
+      );
+      z-index: 1;
+    }
+
+    .page-hero .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .page-hero h1 {
+      font-family: var(--font-serif);
+      font-size: 48px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: var(--color-text-dark);
+      text-shadow: 0 2px 10px rgba(255,255,255,0.8);
+    }
+    .page-hero p {
+      color: var(--color-text-dark);
+      margin-top: 12px;
+      font-size: 15px;
+      font-weight: 400;
+      text-shadow: 0 1px 6px rgba(255,255,255,0.8);
+    }
+
+    /* Classes spécifiques pour chaque onglet (utilisent les variables) */
+    .page-hero.hero-boutique     { background-image: var(--img-hero-boutique); }
+    .page-hero.hero-collections  { background-image: var(--img-hero-collections); }
+    .page-hero.hero-apropos      { background-image: var(--img-hero-apropos); }
+    .page-hero.hero-blog         { background-image: var(--img-hero-blog); }
+    .page-hero.hero-contact      { background-image: var(--img-hero-contact); }
+
+    /* ===== CONTACT ===== */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+    }
+    .contact-info-item {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .contact-info-item svg {
+      width: 22px;
+      height: 22px;
+      stroke: var(--color-leaf);
+      stroke-width: 1.8;
+      fill: none;
+      flex-shrink: 0;
+    }
+    .contact-info-item h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-text-dark);
+      margin-bottom: 4px;
+    }
+    .contact-info-item p {
+      font-size: 13px;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 13px;
+      background: var(--color-bg-card);
+      outline: none;
+      transition: var(--transition);
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(139, 58, 92, 0.12);
+    }
+    .contact-form textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+    .contact-form button {
+      align-self: flex-start;
+      background: var(--color-primary-dark);
+      color: white;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 16px 40px;
+      border-radius: var(--radius-sm);
+      transition: var(--transition);
+    }
+    .contact-form button:hover {
+      background: var(--color-primary-hover);
+    }
+
+    /* ===== BLOG ===== */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .blog-card {
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: var(--transition);
+      background: #fff;
+    }
+    .blog-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--color-primary-light);
+    }
+    .blog-card img {
+      width: 100%;
+      aspect-ratio: 16/10;
+      object-fit: cover;
+    }
+    .blog-card-content {
+      padding: 24px 20px;
+    }
+    .blog-card-date {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-leaf);
+      margin-bottom: 8px;
+    }
+    .blog-card-title {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--color-text-dark);
+      line-height: 1.35;
+      margin-bottom: 10px;
+    }
+    .blog-card-excerpt {
+      font-size: 13px;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+    .blog-card-link {
+      display: inline-block;
+      margin-top: 16px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--color-primary);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      cursor: pointer;
+    }
+
+    /* ===== ABOUT ===== */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .about-title {
+      font-family: var(--font-serif);
+      font-size: 34px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      margin-bottom: 24px;
+      color: var(--color-primary-dark);
+    }
+    .about-text {
+      font-size: 14px;
+      color: var(--color-text-muted);
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+    .about-img {
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      width: 100%;
+    }
+
+    /* ===== COLLECTIONS ===== */
+    .collections-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .collections-intro {
+      margin-top: 60px;
+      text-align: center;
+    }
+    .collections-intro p {
+      font-size: 15px;
+      color: var(--color-text-muted);
+      max-width: 600px;
+      margin: 0 auto 24px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      :root { --header-height: 100px; }
+      .hero-title { font-size: 48px; }
+      .category-grid { grid-template-columns: repeat(3, 1fr); }
+      .arrivals-grid { grid-template-columns: repeat(2, 1fr); }
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+      .promo-box { min-height: 460px; }
+      .promo-content { padding: 48px 40px; }
+      .promo-headline { font-size: 44px; }
+      .blog-grid { grid-template-columns: repeat(2, 1fr); }
+      .contact-grid { grid-template-columns: 1fr; }
+      .page-hero { padding: 80px 0; padding-top: calc(var(--header-height) + 50px); }
+      .page-hero h1 { font-size: 40px; }
+      .about-grid { grid-template-columns: 1fr; }
+      .collections-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 900px) {
+      .nav-menu { display: none; }
+      .mobile-menu-btn { display: flex; }
+      .mobile-nav { display: flex; }
+    }
+
+    @media (max-width: 768px) {
+      .hero-section { min-height: 100vh; background-position: center; }
+      .hero-section::before {
+        background: linear-gradient(
+          180deg,
+          rgba(244, 223, 230, 0.96) 0%,
+          rgba(244, 223, 230, 0.88) 50%,
+          rgba(244, 223, 230, 0.65) 100%
+        );
+      }
+      .hero-grid { 
+        padding-top: calc(var(--header-height) + 40px);
+        padding-bottom: 60px;
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+      .hero-title { font-size: 42px; }
+      .promo-box { min-height: auto; background-position: center; }
+      .promo-box::before {
+        background: linear-gradient(
+          180deg,
+          rgba(219, 188, 200, 0.97) 0%,
+          rgba(219, 188, 200, 0.9) 60%,
+          rgba(219, 188, 200, 0.75) 100%
+        );
+      }
+      .promo-content { padding: 60px 32px; max-width: 100%; }
+      .promo-headline { font-size: 40px; }
+      .page-hero h1 { font-size: 34px; }
+      .blog-grid { grid-template-columns: 1fr; }
+      .collections-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      :root { --header-height: 80px; }
+      .nav-menu { display: none; }
+      .container { padding: 0 20px; }
+      .hero-grid {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+      .category-grid { grid-template-columns: repeat(2, 1fr); }
+      .arrivals-grid { grid-template-columns: 1fr; }
+      .hero-title { font-size: 36px; }
+      .hero-desc { font-size: 15px; }
+      .promo-headline { font-size: 32px; }
+      .promo-content { padding: 48px 24px; }
+      .promo-badges { gap: 16px; }
+      .features-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .page-hero { padding: 60px 0; padding-top: calc(var(--header-height) + 40px); }
+      .page-hero h1 { font-size: 28px; }
+      .brand-logo-img { height: 60px; }
+      .header-inner { height: var(--header-height); }
+      .toast { left: 20px; right: 20px; bottom: 20px; max-width: none; }
+      .designer-logo { height: 30px; }
+    }
+
+    /* ===== NAV DROPDOWNS ===== */
+    .nav-item-dropdown {
+      position: relative;
+    }
+    .nav-dropdown {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(6px);
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+      padding: 10px 0;
+      min-width: 190px;
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      z-index: 60;
+    }
+    .nav-item-dropdown:hover .nav-dropdown,
+    .nav-item-dropdown:focus-within .nav-dropdown {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+    .nav-dropdown a {
+      padding: 9px 20px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      color: #3d2e35;
+      white-space: nowrap;
+    }
+    .nav-dropdown a:hover {
+      background: var(--color-bg-card);
+      color: var(--color-primary);
+    }
+
+    /* ===== MOBILE MENU ===== */
+    .mobile-menu-btn {
+      display: none;
+    }
+    .mobile-menu-btn svg {
+      stroke: #3d2e35;
+      stroke-width: 1.8;
+      fill: none;
+      width: 22px;
+      height: 22px;
+    }
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      background: #ffffff;
+      border-top: 1px solid var(--color-border);
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.3s ease;
+    }
+    .mobile-nav.open {
+      max-height: 400px;
+    }
+    .mobile-nav-link {
+      padding: 16px 24px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #3d2e35;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .mobile-nav-link:hover {
+      color: var(--color-primary);
+      background: var(--color-bg-card);
+    }
+
+    /* ===== FILTER BAR ===== */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 40px;
+    }
+    .filter-chip {
+      padding: 10px 20px;
+      border: 1px solid var(--color-border);
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: #3d2e35;
+      background: #ffffff;
+      transition: var(--transition);
+    }
+    .filter-chip:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+    }
+    .filter-chip.active {
+      background: var(--color-primary-dark);
+      border-color: var(--color-primary-dark);
+      color: #ffffff;
+    }
+    .product-card.hidden {
+      display: none;
+    }
+
+    /* ===== WISHLIST ACTIVE ===== */
+    .wishlist-icon.active {
+      color: #ffffff;
+      background: var(--color-primary-dark);
+    }
+    .wishlist-icon.active svg {
+      fill: currentColor;
+    }
+
+    /* ===== CART DRAWER ===== */
+    .cart-overlay,
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(45, 35, 40, 0.5);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 9990;
+    }
+    .cart-overlay.show,
+    .modal-overlay.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: -420px;
+      width: 100%;
+      max-width: 420px;
+      height: 100%;
+      background: #ffffff;
+      box-shadow: var(--shadow-lg);
+      z-index: 9995;
+      display: flex;
+      flex-direction: column;
+      transition: right 0.35s ease;
+    }
+    .cart-drawer.open {
+      right: 0;
+    }
+    .cart-drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 24px 18px;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .cart-drawer-header h3 {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      letter-spacing: 0.1em;
+      color: var(--color-primary-dark);
+    }
+    .cart-close-btn,
+    .modal-close-btn {
+      color: #3d2e35;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px;
+    }
+    .cart-close-btn svg,
+    .modal-close-btn svg {
+      width: 20px;
+      height: 20px;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      fill: none;
+    }
+    .cart-close-btn:hover,
+    .modal-close-btn:hover {
+      color: var(--color-primary);
+    }
+    .cart-drawer-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px 24px;
+    }
+    .cart-empty {
+      text-align: center;
+      color: var(--color-text-muted);
+      font-size: 13.5px;
+      margin-top: 40px;
+    }
+    .cart-item {
+      display: flex;
+      gap: 14px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .cart-item img {
+      width: 64px;
+      height: 64px;
+      object-fit: cover;
+      border-radius: var(--radius-sm);
+      flex-shrink: 0;
+      background: var(--color-bg-card);
+    }
+    .cart-item-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .cart-item-name {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--color-text-dark);
+      margin-bottom: 4px;
+    }
+    .cart-item-price {
+      font-size: 12.5px;
+      color: var(--color-text-muted);
+    }
+    .cart-item-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .qty-btn {
+      width: 22px;
+      height: 22px;
+      border: 1px solid var(--color-border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      color: #3d2e35;
+    }
+    .qty-btn:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+    }
+    .cart-item-qty {
+      font-size: 12.5px;
+      font-weight: 600;
+      min-width: 16px;
+      text-align: center;
+    }
+    .cart-item-remove {
+      margin-left: auto;
+      font-size: 11px;
+      color: var(--color-text-muted);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .cart-item-remove:hover {
+      color: var(--color-primary);
+    }
+    .cart-item-subtotal {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--color-primary-dark);
+      white-space: nowrap;
+    }
+    .cart-drawer-footer {
+      padding: 20px 24px 26px;
+      border-top: 1px solid var(--color-border);
+    }
+    .cart-total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--color-text-dark);
+      margin-bottom: 16px;
+    }
+    .cart-total-row span:last-child {
+      font-size: 20px;
+      font-family: var(--font-serif);
+      color: var(--color-primary-dark);
+    }
+    .cart-checkout-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      margin-top: 0;
+    }
+    .cart-clear-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      margin-top: 12px;
+      font-size: 11.5px;
+      color: var(--color-text-muted);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .cart-clear-btn:hover {
+      color: var(--color-primary);
+    }
+
+    /* ===== MODAL ===== */
+    .modal-box {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -48%);
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      width: 92%;
+      max-width: 560px;
+      max-height: 84vh;
+      overflow-y: auto;
+      padding: 40px 36px;
+      z-index: 9996;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+    .modal-box.open {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translate(-50%, -50%);
+    }
+    .modal-close-btn {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+    }
+    .modal-title {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      color: var(--color-primary-dark);
+      margin-bottom: 6px;
+      letter-spacing: 0.02em;
+    }
+    .modal-meta {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-leaf);
+      margin-bottom: 18px;
+    }
+    .modal-box p {
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--color-text-muted);
+      margin-bottom: 14px;
+    }
+    .modal-box img.modal-img {
+      width: 100%;
+      border-radius: var(--radius-md);
+      margin-bottom: 20px;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+    }
+    .ritual-product-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .ritual-product-row img {
+      width: 56px;
+      height: 56px;
+      object-fit: cover;
+      border-radius: var(--radius-sm);
+    }
+    .ritual-product-row .ritual-name {
+      flex: 1;
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--color-text-dark);
+    }
+    .ritual-product-row .ritual-price {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--color-primary-dark);
+    }
+    .ritual-total-row {
+      display: flex;
+      justify-content: space-between;
+      margin: 18px 0;
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--color-primary-dark);
+    }
+
+    @media (max-width: 480px) {
+      .cart-drawer { max-width: 100%; right: -100%; }
+      .modal-box { padding: 30px 22px; }
+      .container { padding: 0 16px; }
+      .hero-grid {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a href="#" class="brand-logo" aria-label="Sarah-Anne VALÈRE - Accueil" onclick="showPage('home'); return false;">
+        <!-- 🖼️ LOGO — Modifiable dans :root via --img-logo -->
+        <img src="Sarah-Anne.png" alt="Sarah-Anne VALÈRE - Cosmétiques 100% faits main" class="brand-logo-img">
+      </a>
+
+      <nav aria-label="Navigation principale">
+        <ul class="nav-menu">
+          <li><a href="#" class="nav-link" id="nav-home" onclick="showPage('home'); return false;">ACCUEIL</a></li>
+          <li class="nav-item-dropdown">
+            <a href="#" class="nav-link" id="nav-shop" onclick="showPage('shop'); return false;">BOUTIQUE <span class="caret-down" aria-hidden="true">▾</span></a>
+            <div class="nav-dropdown">
+              <a href="#" onclick="filterShop('cleansers'); return false;">Nettoyants</a>
+              <a href="#" onclick="filterShop('serums'); return false;">Sérums</a>
+              <a href="#" onclick="filterShop('moisturizers'); return false;">Hydratants</a>
+              <a href="#" onclick="filterShop('sun-care'); return false;">Protection solaire</a>
+              <a href="#" onclick="filterShop('kits'); return false;">Coffrets de soins</a>
+              <a href="#" onclick="filterShop('bestsellers'); return false;">Meilleures ventes</a>
+            </div>
+          </li>
+          <li class="nav-item-dropdown">
+            <a href="#" class="nav-link" id="nav-collections" onclick="showPage('collections'); return false;">COLLECTIONS <span class="caret-down" aria-hidden="true">▾</span></a>
+            <div class="nav-dropdown">
+              <a href="#" onclick="openRitual('eclat'); return false;">Rituel Éclat</a>
+              <a href="#" onclick="openRitual('hydratation'); return false;">Rituel Hydratation</a>
+              <a href="#" onclick="openRitual('apaisant'); return false;">Rituel Apaisant</a>
+            </div>
+          </li>
+          <li><a href="#" class="nav-link" id="nav-about" onclick="showPage('about'); return false;">À PROPOS</a></li>
+          <li><a href="#" class="nav-link" id="nav-blog" onclick="showPage('blog'); return false;">BLOG</a></li>
+          <li><a href="#" class="nav-link" id="nav-contact" onclick="showPage('contact'); return false;">CONTACT</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <div class="currency-selector" id="currency-selector">
+          <button class="currency-btn" aria-label="Changer de devise" onclick="toggleCurrencyMenu(event)">
+            <span id="currency-current-label">EUR €</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="currency-dropdown">
+            <button class="currency-option active" data-currency="EUR" onclick="setCurrency('EUR', event)">EUR €</button>
+            <button class="currency-option" data-currency="USD" onclick="setCurrency('USD', event)">USD $</button>
+            <button class="currency-option" data-currency="XOF" onclick="setCurrency('XOF', event)">FCFA</button>
+          </div>
+        </div>
+
+        <button class="action-btn" aria-label="Panier" onclick="toggleCart();">
+          <svg viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="badge" id="cart-badge">0</span>
+        </button>
+        <button class="action-btn mobile-menu-btn" aria-label="Menu" onclick="toggleMobileMenu()">
+          <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Navigation mobile">
+      <a href="#" class="mobile-nav-link" onclick="showPage('home'); toggleMobileMenu(); return false;">Accueil</a>
+      <a href="#" class="mobile-nav-link" onclick="showPage('shop'); toggleMobileMenu(); return false;">Boutique</a>
+      <a href="#" class="mobile-nav-link" onclick="showPage('collections'); toggleMobileMenu(); return false;">Collections</a>
+      <a href="#" class="mobile-nav-link" onclick="showPage('about'); toggleMobileMenu(); return false;">À propos</a>
+      <a href="#" class="mobile-nav-link" onclick="showPage('blog'); toggleMobileMenu(); return false;">Blog</a>
+      <a href="#" class="mobile-nav-link" onclick="showPage('contact'); toggleMobileMenu(); return false;">Contact</a>
+    </nav>
+  </header>
+
+  <div class="toast" id="toast">
+    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+    <span id="toast-message">Produit ajouté au panier !</span>
+  </div>
+
+  <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Aperçu du panier">
+    <div class="cart-drawer-header">
+      <h3>VOTRE PANIER</h3>
+      <button class="cart-close-btn" aria-label="Fermer le panier" onclick="toggleCart()">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="cart-drawer-body" id="cart-drawer-body">
+      <p class="cart-empty">Votre panier est vide.</p>
+    </div>
+    <div class="cart-drawer-footer">
+      <div class="cart-total-row">
+        <span>TOTAL</span>
+        <span id="cart-total">0,00 €</span>
+      </div>
+      <button class="btn-primary cart-checkout-btn" onclick="checkoutCart()">PASSER LA COMMANDE</button>
+      <button class="cart-clear-btn" onclick="clearCart()">Vider le panier</button>
+    </div>
+  </aside>
+
+  <div class="modal-overlay" id="modal-overlay" onclick="closeModal()"></div>
+  <div class="modal-box" id="modal-box" role="dialog" aria-modal="true">
+    <button class="modal-close-btn" aria-label="Fermer" onclick="closeModal()">
+      <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div id="modal-content"></div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       PAGE ACCUEIL
+       🖼️  Le hero utilise automatiquement --img-hero-accueil
+       ═══════════════════════════════════════════════════════════════════ -->
+  <div id="page-home" class="page active">
+    <section class="hero-section">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <h1 class="hero-title">
+            Cosmétiques 100% faits main
+            <span class="hero-title-accent">Santé par les plantes.</span>
+          </h1>
+          <p class="hero-desc">
+            Des soins propres, efficaces et cruelty-free, enrichis des meilleurs ingrédients de la nature.
+          </p>
+          <a href="#categories" class="btn-primary" onclick="document.getElementById('categories').scrollIntoView({behavior:'smooth'}); return false;">ACHETER MAINTENANT</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="features-section">
+      <div class="container features-grid">
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg>
+          </div>
+          <div>
+            <h4 class="feature-title">Ingrédients naturels</h4>
+            <p class="feature-subtitle">Sains &amp; sans toxines</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 2v7.5a2 2 0 0 1-.2.9L4.7 20.5A1 1 0 0 0 5.6 22h12.8a1 1 0 0 0 .9-1.5L14.2 10.4a2 2 0 0 1-.2-.9V2"/><path d="M8.5 2h7"/></svg>
+          </div>
+          <div>
+            <h4 class="feature-title">Testé cliniquement</h4>
+            <p class="feature-subtitle">Approuvé par les dermatologues</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.5 12c.5-1.5 2-4.5 2-6.5a2 2 0 0 0-3.5-1.5c-1 1-1.5 3-1.5 4.5"/><path d="M10 12c-2.5 0-5 1.5-6 4s0 5 3 5h9c3 0 4-2.5 4-5 0-2-1.5-4-4-4Z"/></svg>
+          </div>
+          <div>
+            <h4 class="feature-title">Cruelty Free</h4>
+            <p class="feature-subtitle">Jamais testé sur les animaux</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+          </div>
+          <div>
+            <h4 class="feature-title">Pour tous types de peaux</h4>
+            <p class="feature-subtitle">Soin doux &amp; efficace</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="categories" class="section-category">
+      <div class="container">
+        <div class="section-title-wrap">
+          <h2 class="section-title">ACHETER PAR CATÉGORIE</h2>
+        </div>
+
+        <div class="category-grid">
+          <div class="category-card" role="button" tabindex="0" onclick="filterShop('cleansers')" onkeypress="if(event.key==='Enter')filterShop('cleansers')">
+            <div class="category-img-box">
+              <img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=600&q=80&auto=format&fit=crop" alt="Nettoyants" loading="lazy">
+            </div>
+            <div class="category-btn">NETTOYANTS</div>
+          </div>
+          <div class="category-card" role="button" tabindex="0" onclick="filterShop('serums')" onkeypress="if(event.key==='Enter')filterShop('serums')">
+            <div class="category-img-box">
+              <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=600&q=80&auto=format&fit=crop" alt="Sérums" loading="lazy">
+            </div>
+            <div class="category-btn">SÉRUMS</div>
+          </div>
+          <div class="category-card" role="button" tabindex="0" onclick="filterShop('moisturizers')" onkeypress="if(event.key==='Enter')filterShop('moisturizers')">
+            <div class="category-img-box">
+              <img src="https://images.unsplash.com/photo-1570194065650-d99fb4bedf0a?w=600&q=80&auto=format&fit=crop" alt="Hydratants" loading="lazy">
+            </div>
+            <div class="category-btn">HYDRATANTS</div>
+          </div>
+          <div class="category-card" role="button" tabindex="0" onclick="filterShop('sun-care')" onkeypress="if(event.key==='Enter')filterShop('sun-care')">
+            <div class="category-img-box">
+              <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=600&q=80&auto=format&fit=crop" alt="Protection solaire" loading="lazy">
+            </div>
+            <div class="category-btn">PROTECTION SOLAIRE</div>
+          </div>
+          <div class="category-card" role="button" tabindex="0" onclick="filterShop('kits')" onkeypress="if(event.key==='Enter')filterShop('kits')">
+            <div class="category-img-box">
+              <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=600&q=80&auto=format&fit=crop" alt="Coffrets de soins" loading="lazy">
+            </div>
+            <div class="category-btn">COFFRETS DE SOINS</div>
+          </div>
+          <div class="category-card" role="button" tabindex="0" onclick="filterShop('bestsellers')" onkeypress="if(event.key==='Enter')filterShop('bestsellers')">
+            <div class="category-img-box">
+              <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=600&q=80&auto=format&fit=crop" alt="Meilleures ventes" loading="lazy">
+            </div>
+            <div class="category-btn">MEILLEURES VENTES</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 🖼️ Bannière promo : utilise automatiquement --img-promo -->
+    <section class="promo-banner-section">
+      <div class="container">
+        <div class="promo-box">
+          <div class="promo-content">
+            <span class="promo-tagline">
+              BON POUR VOTRE PEAU.<br>BON POUR LA PLANÈTE.
+            </span>
+            <h3 class="promo-headline">
+              Jusqu'à -25%
+              <span>Sur tout le site</span>
+            </h3>
+            <a href="#arrivals" class="btn-primary" onclick="document.getElementById('arrivals').scrollIntoView({behavior:'smooth'}); return false;">DÉCOUVRIR LES OFFRES</a>
+
+            <div class="promo-badges">
+              <div class="promo-badge-item">
+                <span class="badge-circle">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/></svg>
+                </span>
+                <span>Beauté propre</span>
+              </div>
+              <div class="promo-badge-item">
+                <span class="badge-circle">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 19H4.815a1.83 1.83 0 0 1-1.57-.881 1.785 1.785 0 0 1-.004-1.784L7.196 9.5"/></svg>
+                </span>
+                <span>Durable</span>
+              </div>
+              <div class="promo-badge-item">
+                <span class="badge-circle">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m16.5 9.4-9-5.19M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                </span>
+                <span>Emballage éco-responsable</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="arrivals" class="section-arrivals">
+      <div class="container">
+        <div class="arrivals-header">
+          <div style="flex:1;"></div>
+          <h2 class="arrivals-title">NOUVEAUTÉS</h2>
+          <div style="flex:1; text-align:right;">
+            <a href="#" class="view-all-link" onclick="showPage('shop'); return false;">TOUT VOIR</a>
+          </div>
+        </div>
+
+        <div class="arrivals-grid" id="arrivals-grid"></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       PAGE BOUTIQUE
+       🖼️  Le hero utilise automatiquement --img-hero-boutique
+       ═══════════════════════════════════════════════════════════════════ -->
+  <div id="page-shop" class="page">
+    <div class="page-hero hero-boutique">
+      <div class="container">
+        <h1>Découvrez tous nos soins naturels pour sublimer votre peau.</h1>
+      </div>
+    </div>
+    <section class="section-page-content">
+      <div class="container">
+        <div class="section-title-wrap">
+          <h2 class="section-title">TOUS NOS PRODUITS</h2>
+        </div>
+        <div class="filter-bar" id="filter-bar">
+          <button class="filter-chip active" data-filter="all" onclick="filterShop('all')">TOUS</button>
+          <button class="filter-chip" data-filter="cleansers" onclick="filterShop('cleansers')">NETTOYANTS</button>
+          <button class="filter-chip" data-filter="serums" onclick="filterShop('serums')">SÉRUMS</button>
+          <button class="filter-chip" data-filter="moisturizers" onclick="filterShop('moisturizers')">HYDRATANTS</button>
+          <button class="filter-chip" data-filter="sun-care" onclick="filterShop('sun-care')">PROTECTION SOLAIRE</button>
+          <button class="filter-chip" data-filter="kits" onclick="filterShop('kits')">COFFRETS</button>
+          <button class="filter-chip" data-filter="bestsellers" onclick="filterShop('bestsellers')">MEILLEURES VENTES</button>
+        </div>
+
+        <div class="arrivals-grid" id="shop-grid"></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       PAGE COLLECTIONS
+       🖼️  Le hero utilise automatiquement --img-hero-collections
+       ═══════════════════════════════════════════════════════════════════ -->
+  <div id="page-collections" class="page">
+    <div class="page-hero hero-collections">
+      <div class="container">
+        <h1>Des rituels complets pour chaque besoin de votre peau.</h1>
+      </div>
+    </div>
+    <section class="section-page-content">
+      <div class="container">
+        <div class="section-title-wrap">
+          <h2 class="section-title">NOS COLLECTIONS</h2>
+        </div>
+        <div class="collections-grid">
+          <div class="category-card" role="button" tabindex="0" onclick="openRitual('eclat')" onkeypress="if(event.key==='Enter')openRitual('eclat')">
+            <div class="category-img-box">
+              <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=600&q=80&auto=format&fit=crop" alt="Rituel Éclat" loading="lazy">
+            </div>
+            <div class="category-btn">RITUEL ÉCLAT</div>
+          </div>
+          <div class="category-card" role="button" tabindex="0" onclick="openRitual('hydratation')" onkeypress="if(event.key==='Enter')openRitual('hydratation')">
+            <div class="category-img-box">
+              <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=600&q=80&auto=format&fit=crop" alt="Rituel Hydratation" loading="lazy">
+            </div>
+            <div class="category-btn">RITUEL HYDRATATION</div>
+          </div>
+          <div class="category-card" role="button" tabindex="0" onclick="openRitual('apaisant')" onkeypress="if(event.key==='Enter')openRitual('apaisant')">
+            <div class="category-img-box">
+              <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=600&q=80&auto=format&fit=crop" alt="Rituel Apaisant" loading="lazy">
+            </div>
+            <div class="category-btn">RITUEL APAISANT</div>
+          </div>
+        </div>
+        <div class="collections-intro">
+          <p>
+            Chaque collection Sarah-Anne VALÈRE associe des ingrédients botaniques puissants à des actifs cliniquement prouvés pour des résultats visibles, en toute sécurité.
+          </p>
+          <a href="#" class="btn-primary" onclick="showPage('shop'); return false;">DÉCOUVRIR LA BOUTIQUE</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       PAGE À PROPOS
+       🖼️  Le hero utilise automatiquement --img-hero-apropos
+       ═══════════════════════════════════════════════════════════════════ -->
+  <div id="page-about" class="page">
+    <div class="page-hero hero-apropos">
+      <div class="container">
+        <h1>Notre histoire, notre engagement pour une beauté propre et durable.</h1>
+      </div>
+    </div>
+    <section class="section-page-content">
+      <div class="container">
+        <div class="about-grid">
+          <div>
+            <h2 class="about-title">NATURE &amp; SCIENCE</h2>
+            <p class="about-text">
+              Sarah-Anne VALÈRE est né de la conviction que la nature offre les meilleurs soins pour la peau, et que la science peut les rendre encore plus efficaces. Nous formulons chaque produit avec des ingrédients d'origine végétale, sans compromis sur la performance.
+            </p>
+            <p class="about-text">
+              Tous nos soins sont cliniquement testés, dermatologiquement approuvés et certifiés cruelty-free. Nous croyons en une beauté propre, transparente et respectueuse de la planète.
+            </p>
+            <p class="about-text">
+              Rejoignez la communauté Sarah-Anne VALÈRE et découvrez le pouvoir de la nature sur votre peau.
+            </p>
+          </div>
+          <div>
+            <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=800&q=80&auto=format&fit=crop" 
+                 alt="Sarah-Anne VALÈRE - soins naturels" 
+                 class="about-img">
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       PAGE BLOG
+       🖼️  Le hero utilise automatiquement --img-hero-blog
+       ═══════════════════════════════════════════════════════════════════ -->
+  <div id="page-blog" class="page">
+    <div class="page-hero hero-blog">
+      <div class="container">
+        <h1>Conseils, rituels et actualités pour une peau éclatante.</h1>
+      </div>
+    </div>
+    <section class="section-page-content">
+      <div class="container">
+        <div class="blog-grid">
+          <article class="blog-card">
+            <img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=600&q=80&auto=format&fit=crop" alt="Rituel du matin" loading="lazy">
+            <div class="blog-card-content">
+              <p class="blog-card-date">15 Mars 2025</p>
+              <h3 class="blog-card-title">Le rituel du matin pour une peau lumineuse</h3>
+              <p class="blog-card-excerpt">Découvrez les étapes essentielles pour réveiller votre peau en douceur et booster son éclat naturel.</p>
+              <a href="#" class="blog-card-link" onclick="openArticle(1); return false;">LIRE LA SUITE →</a>
+            </div>
+          </article>
+          <article class="blog-card">
+            <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=600&q=80&auto=format&fit=crop" alt="Sérum vitamine C" loading="lazy">
+            <div class="blog-card-content">
+              <p class="blog-card-date">8 Mars 2025</p>
+              <h3 class="blog-card-title">Tout savoir sur la vitamine C en cosmétique</h3>
+              <p class="blog-card-excerpt">Antioxydante, éclatante, protectrice : pourquoi la vitamine C est l'actif star de votre routine.</p>
+              <a href="#" class="blog-card-link" onclick="openArticle(2); return false;">LIRE LA SUITE →</a>
+            </div>
+          </article>
+          <article class="blog-card">
+            <img src="https://images.unsplash.com/photo-1570194065650-d99fb4bedf0a?w=600&q=80&auto=format&fit=crop" alt="Hydratation" loading="lazy">
+            <div class="blog-card-content">
+              <p class="blog-card-date">1 Mars 2025</p>
+              <h3 class="blog-card-title">Hydratation : la clé d'une barrière cutanée saine</h3>
+              <p class="blog-card-excerpt">Comment choisir le bon hydratant et pourquoi l'hydratation est essentielle pour toutes les peaux.</p>
+              <a href="#" class="blog-card-link" onclick="openArticle(3); return false;">LIRE LA SUITE →</a>
+            </div>
+          </article>
+          <article class="blog-card">
+            <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=600&q=80&auto=format&fit=crop" alt="Protection solaire" loading="lazy">
+            <div class="blog-card-content">
+              <p class="blog-card-date">22 Février 2025</p>
+              <h3 class="blog-card-title">Protection solaire : le geste anti-âge indispensable</h3>
+              <p class="blog-card-excerpt">Pourquoi le SPF est votre meilleur allié contre le vieillissement prématuré de la peau.</p>
+              <a href="#" class="blog-card-link" onclick="openArticle(4); return false;">LIRE LA SUITE →</a>
+            </div>
+          </article>
+          <article class="blog-card">
+            <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=600&q=80&auto=format&fit=crop" alt="Soin de nuit" loading="lazy">
+            <div class="blog-card-content">
+              <p class="blog-card-date">14 Février 2025</p>
+              <h3 class="blog-card-title">Le soin de nuit : votre secret beauté pendant le sommeil</h3>
+              <p class="blog-card-excerpt">Découvrez comment optimiser la régénération nocturne de votre peau pour un réveil éclatant.</p>
+              <a href="#" class="blog-card-link" onclick="openArticle(5); return false;">LIRE LA SUITE →</a>
+            </div>
+          </article>
+          <article class="blog-card">
+            <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=600&q=80&auto=format&fit=crop" alt="Routine complète" loading="lazy">
+            <div class="blog-card-content">
+              <p class="blog-card-date">5 Février 2025</p>
+              <h3 class="blog-card-title">Construire une routine skincare efficace en 5 étapes</h3>
+              <p class="blog-card-excerpt">Le guide complet pour une routine simple, cohérente et adaptée à votre type de peau.</p>
+              <a href="#" class="blog-card-link" onclick="openArticle(6); return false;">LIRE LA SUITE →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       PAGE CONTACT
+       🖼️  Le hero utilise automatiquement --img-hero-contact
+       ═══════════════════════════════════════════════════════════════════ -->
+  <div id="page-contact" class="page">
+    <div class="page-hero hero-contact">
+      <div class="container">
+        <h1>Une question ? Notre équipe vous répond avec plaisir.</h1>
+      </div>
+    </div>
+    <section class="section-page-content">
+      <div class="container">
+        <div class="contact-grid">
+          <div>
+            <div class="contact-info-item">
+              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div>
+                <h4>Adresse</h4>
+                <p>123 Green Leaf Lane<br>Mumbai, Inde 400001</p>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <div>
+                <h4>Téléphone</h4>
+                <p>+91 98765 43210</p>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <svg viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              <div>
+                <h4>Email</h4>
+                <p>hello@sarah-anne-valere.com</p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <form class="contact-form" onsubmit="event.preventDefault(); alert('Merci ! Votre message a bien été envoyé.');">
+              <input type="text" placeholder="Votre nom" required>
+              <input type="email" placeholder="Votre email" required>
+              <input type="text" placeholder="Sujet">
+              <textarea placeholder="Votre message" required></textarea>
+              <button type="submit">ENVOYER</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- FOOTER -->
+  <footer id="footer" class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4 class="footer-col-title">INSCRIVEZ-VOUS À NOTRE NEWSLETTER</h4>
+          <p class="footer-text">
+            Obtenez 15% de réduction sur votre première commande et restez informé de nos dernières actualités.
+          </p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Merci pour votre inscription à la newsletter Sarah-Anne VALÈRE !');">
+            <input type="email" placeholder="Votre adresse email" required class="newsletter-input" aria-label="Adresse email">
+            <button type="submit" class="newsletter-btn">S'INSCRIRE</button>
+          </form>
+
+          <div class="social-links">
+            <a href="#" class="social-icon" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.99 3.66 9.13 8.44 9.88v-6.99h-2.54V12h2.54V9.8c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99C18.34 21.13 22 16.99 22 12z"/></svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="Pinterest">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0a12 12 0 0 0-4.37 23.18c-.06-.98-.12-2.5.02-3.57l1.1-4.7s-.28-.56-.28-1.39c0-1.3.75-2.28 1.7-2.28.8 0 1.18.6 1.18 1.33 0 .8-.52 2.01-.78 3.12-.22.94.47 1.7 1.4 1.7 1.68 0 2.97-1.77 2.97-4.33 0-2.26-1.63-3.84-3.95-3.84-2.7 0-4.28 2.02-4.28 4.12 0 .81.31 1.69.7 2.16.08.1.09.18.06.3-.08.33-.26 1.05-.29 1.2-.05.18-.16.22-.36.13-1.35-.63-2.19-2.6-2.19-4.18 0-3.4 2.47-6.53 7.13-6.53 3.74 0 6.65 2.67 6.65 6.23 0 3.72-2.34 6.71-5.6 6.71-1.1 0-2.12-.57-2.47-1.24l-.67 2.57c-.24.94-.9 2.12-1.34 2.84A12 12 0 1 0 12 0z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <!-- 🖼️ LOGO DESIGNER — Modifiable dans :root via --img-logo-designer -->
+        <p>© 2025 Sarah-Anne VALÈRE. Tous droits réservés. Designed by <a href="https://www.aldas-ci.com" target="_blank" rel="noopener noreferrer" class="designer-link"><img src="logo.png" alt="Logo designer" class="designer-logo"></a></p>
+        <div class="footer-legal-links">
+          <a href="#">Politique de confidentialité</a>
+          <span>|</span>
+          <a href="#">Conditions d'utilisation</a>
+          <span>|</span>
+          <a href="#">Politique d'expédition</a>
+          <span>|</span>
+          <a href="#">Politique de remboursement</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ═══════════════════════════════════════════════════════════════
+       🛍️  BASE DE DONNÉES PRODUITS
+       ═══════════════════════════════════════════════════════════════
+       
+       👉 Les prix sont en EUROS (€) — devise de base.
+       👉 Catégories : cleansers · serums · moisturizers · sun-care · kits · bestsellers
+       👉 featured: true → affiché dans "NOUVEAUTÉS" (4 max sur l'accueil)
+       ═══════════════════════════════════════════════════════════════ */
+    const PRODUCTS = [
+      {
+        name: "Karité 100g",
+        priceEur: 3.50,
+        img: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=600&q=80&auto=format&fit=crop",
+        categories: ["cleansers", "bestsellers"],
+        featured: true
+      },
+      {
+        name: "Karité 750g",
+        priceEur: 22.00,
+        img: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=600&q=80&auto=format&fit=crop",
+        categories: ["cleansers", "bestsellers"],
+        featured: false
+      },
+      {
+        name: "Sérum éclat à la vitamine C",
+        priceEur: 8.99,
+        img: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=600&q=80&auto=format&fit=crop",
+        categories: ["serums", "bestsellers"],
+        featured: true
+      },
+      {
+        name: "Crème hydratante barrière",
+        priceEur: 7.29,
+        img: "https://images.unsplash.com/photo-1570194065650-d99fb4bedf0a?w=600&q=80&auto=format&fit=crop",
+        categories: ["moisturizers"],
+        featured: true
+      },
+      {
+        name: "Baume à lèvres teinté SPF 20",
+        priceEur: 3.39,
+        img: "https://images.unsplash.com/photo-1631730359585-38a4935cbec4?w=600&q=80&auto=format&fit=crop",
+        categories: ["sun-care"],
+        featured: true
+      },
+      {
+        name: "Nettoyant moussant doux",
+        priceEur: 4.49,
+        img: "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=600&q=80&auto=format&fit=crop",
+        categories: ["cleansers"],
+        featured: false
+      },
+      {
+        name: "Coffret renouveau éclat",
+        priceEur: 14.59,
+        img: "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=600&q=80&auto=format&fit=crop",
+        categories: ["kits", "bestsellers"],
+        featured: false
+      },
+      {
+        name: "Protection solaire quotidienne SPF 50",
+        priceEur: 6.69,
+        img: "https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=600&q=80&auto=format&fit=crop",
+        categories: ["sun-care", "bestsellers"],
+        featured: false
+      },
+      {
+        name: "Crème réparatrice de nuit",
+        priceEur: 9.99,
+        img: "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=600&q=80&auto=format&fit=crop",
+        categories: ["moisturizers", "kits"],
+        featured: false
+      }
+    ];
+
+    const FEATURED_COUNT = 4;
+
+    const productImages = {};
+    const priceMapEur   = {};
+
+    function rebuildDictionaries() {
+      Object.keys(productImages).forEach(k => delete productImages[k]);
+      Object.keys(priceMapEur).forEach(k => delete priceMapEur[k]);
+      PRODUCTS.forEach(p => {
+        productImages[p.name] = p.img;
+        priceMapEur[p.name]   = p.priceEur;
+      });
+    }
+    rebuildDictionaries();
+
+    function esc(str) {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/"/g, '&quot;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+    }
+
+    function productCardHTML(p) {
+      const name  = esc(p.name);
+      const cats  = p.categories.join(' ');
+      return `
+        <div class="product-card" data-categories="${cats}">
+          <div class="product-img-box">
+            <img src="${p.img}" alt="${name}" loading="lazy">
+            <button class="wishlist-icon" aria-label="Ajouter aux favoris" onclick="toggleWishlist(this)">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            </button>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">${name}</h3>
+            <p class="product-price" data-price-eur="${p.priceEur}">—</p>
+            <button class="btn-add-cart" data-name="${name}" data-price="${p.priceEur}" data-category="${cats}">AJOUTER AU PANIER</button>
+          </div>
+        </div>`;
+    }
+
+    function renderShop() {
+      const grid = document.getElementById('shop-grid');
+      if (grid) grid.innerHTML = PRODUCTS.map(productCardHTML).join('');
+    }
+
+    function renderArrivals() {
+      const grid = document.getElementById('arrivals-grid');
+      if (!grid) return;
+      const featured = PRODUCTS.filter(p => p.featured).slice(0, FEATURED_COUNT);
+      grid.innerHTML = featured.map(productCardHTML).join('');
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       🚀  AJOUT / SUPPRESSION RAPIDE DE PRODUIT (console F12)
+       ═══════════════════════════════════════════════════════════════
+       addProduct("Savon d'Alep", 5.50, "images/savon-alep.jpg", ["cleansers"], true);
+       removeProduct("Savon d'Alep");
+       ═══════════════════════════════════════════════════════════════ */
+    function addProduct(name, priceEur, img, categories = [], featured = false) {
+      PRODUCTS.push({ name, priceEur, img, categories, featured });
+      rebuildDictionaries();
+      renderShop();
+      renderArrivals();
+      refreshAllPrices();
+      console.log(`✅ Produit "${name}" ajouté !`);
+    }
+
+    function removeProduct(name) {
+      const idx = PRODUCTS.findIndex(p => p.name === name);
+      if (idx === -1) return console.warn("Produit introuvable :", name);
+      PRODUCTS.splice(idx, 1);
+      rebuildDictionaries();
+      renderShop();
+      renderArrivals();
+      refreshAllPrices();
+      console.log(`🗑️ Produit "${name}" supprimé !`);
+    }
+
+    /* ================================================================
+       2) SYSTÈME DE DEVISES
+       ================================================================ */
+    const CURRENCIES = {
+      EUR: { code: 'EUR', symbol: '€',    rate: 1,       position: 'after',  decimals: 2, label: 'EUR €'  },
+      USD: { code: 'USD', symbol: '$',    rate: 1.08,    position: 'before', decimals: 2, label: 'USD $'  },
+      XOF: { code: 'XOF', symbol: 'FCFA', rate: 655.957, position: 'after',  decimals: 0, label: 'FCFA'   }
+    };
+    let currentCurrency = 'EUR';
+
+    function convertFromEUR(priceEur) {
+      const c = CURRENCIES[currentCurrency];
+      return priceEur * c.rate;
+    }
+
+    function formatPrice(priceEur) {
+      const c = CURRENCIES[currentCurrency];
+      const value = convertFromEUR(priceEur);
+      const rounded = c.decimals === 0
+        ? Math.round(value)
+        : Math.round(value * 100) / 100;
+      let numStr = rounded.toFixed(c.decimals);
+      const parts = numStr.split('.');
+      parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+      numStr = parts.join(',');
+      if (c.position === 'before') {
+        return c.symbol + numStr;
+      } else {
+        return numStr + ' ' + c.symbol;
+      }
+    }
+
+    function setCurrency(code, event) {
+      if (event) event.stopPropagation();
+      if (!CURRENCIES[code]) return;
+      currentCurrency = code;
+      document.getElementById('currency-current-label').textContent = CURRENCIES[code].label;
+      document.querySelectorAll('.currency-option').forEach(opt => {
+        opt.classList.toggle('active', opt.getAttribute('data-currency') === code);
+      });
+      document.getElementById('currency-selector').classList.remove('open');
+      refreshAllPrices();
+    }
+
+    function refreshAllPrices() {
+      document.querySelectorAll('.product-price[data-price-eur]').forEach(el => {
+        const eur = Number(el.getAttribute('data-price-eur'));
+        el.textContent = formatPrice(eur);
+      });
+      renderCart();
+    }
+
+    function toggleCurrencyMenu(event) {
+      event.stopPropagation();
+      document.getElementById('currency-selector').classList.toggle('open');
+    }
+
+    document.addEventListener('click', function(e) {
+      const sel = document.getElementById('currency-selector');
+      if (sel && !sel.contains(e.target)) {
+        sel.classList.remove('open');
+      }
+    });
+
+    /* ================================================================
+       3) PANIER
+       ================================================================ */
+    let cart = [];
+    const cartBadge = document.getElementById('cart-badge');
+    const toast = document.getElementById('toast');
+    const toastMessage = document.getElementById('toast-message');
+    let toastTimeout = null;
+
+    function showToast(message) {
+      toastMessage.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+
+    function addToCart(name, priceEur, buttonEl) {
+      priceEur = Number(priceEur);
+      const existing = cart.find(item => item.name === name);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ name, priceEur, qty: 1 });
+      }
+      renderCart();
+
+      if (buttonEl) {
+        cartBadge.classList.remove('bump');
+        void cartBadge.offsetWidth;
+        cartBadge.classList.add('bump');
+        buttonEl.classList.add('added');
+        const originalText = buttonEl.textContent;
+        buttonEl.textContent = '✓ AJOUTÉ';
+        setTimeout(() => {
+          buttonEl.classList.remove('added');
+          buttonEl.textContent = originalText;
+        }, 1200);
+      }
+
+      showToast(`"${name}" ajouté au panier ! (${formatPrice(priceEur)})`);
+    }
+
+    function changeQty(name, delta) {
+      const item = cart.find(i => i.name === name);
+      if (!item) return;
+      item.qty += delta;
+      if (item.qty <= 0) {
+        cart = cart.filter(i => i.name !== name);
+      }
+      renderCart();
+    }
+
+    function removeFromCart(name) {
+      cart = cart.filter(i => i.name !== name);
+      renderCart();
+    }
+
+    function clearCart() {
+      cart = [];
+      renderCart();
+    }
+
+    function cartTotalCount() {
+      return cart.reduce((sum, i) => sum + i.qty, 0);
+    }
+
+    function cartTotalSumEur() {
+      return cart.reduce((sum, i) => sum + i.qty * i.priceEur, 0);
+    }
+
+    function renderCart() {
+      cartBadge.textContent = cartTotalCount();
+
+      const body = document.getElementById('cart-drawer-body');
+      if (cart.length === 0) {
+        body.innerHTML = '<p class="cart-empty">Votre panier est vide.</p>';
+      } else {
+        body.innerHTML = cart.map(item => {
+          const img = productImages[item.name] || '';
+          const subtotalEur = item.qty * item.priceEur;
+          const safeName = item.name.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+          return `
+            <div class="cart-item">
+              <img src="${img}" alt="${esc(item.name)}" loading="lazy">
+              <div class="cart-item-info">
+                <span class="cart-item-name">${esc(item.name)}</span>
+                <span class="cart-item-price">${formatPrice(item.priceEur)} / unité</span>
+                <div class="cart-item-controls">
+                  <button class="qty-btn" onclick="changeQty('${safeName}', -1)" aria-label="Diminuer la quantité">−</button>
+                  <span class="cart-item-qty">${item.qty}</span>
+                  <button class="qty-btn" onclick="changeQty('${safeName}', 1)" aria-label="Augmenter la quantité">+</button>
+                  <span class="cart-item-remove" onclick="removeFromCart('${safeName}')">Retirer</span>
+                </div>
+              </div>
+              <span class="cart-item-subtotal">${formatPrice(subtotalEur)}</span>
+            </div>`;
+        }).join('');
+      }
+
+      document.getElementById('cart-total').textContent = formatPrice(cartTotalSumEur());
+    }
+
+    function toggleCart() {
+      const drawer = document.getElementById('cart-drawer');
+      const overlay = document.getElementById('cart-overlay');
+      const opening = !drawer.classList.contains('open');
+      drawer.classList.toggle('open', opening);
+      overlay.classList.toggle('show', opening);
+      if (opening) closeModal();
+    }
+
+    function checkoutCart() {
+      if (cart.length === 0) {
+        showToast('Votre panier est vide.');
+        return;
+      }
+      alert(`Merci pour votre commande !\nTotal : ${formatPrice(cartTotalSumEur())}\n\n(Ceci est une démonstration — aucun paiement n'a été effectué.)`);
+      clearCart();
+      toggleCart();
+    }
+
+    document.addEventListener('click', function(e) {
+      const btn = e.target.closest('.btn-add-cart');
+      if (btn) {
+        e.preventDefault();
+        const name = btn.getAttribute('data-name') || 'Produit';
+        const price = btn.getAttribute('data-price') || 0;
+        addToCart(name, price, btn);
+      }
+    });
+
+    /* ================================================================
+       4) FAVORIS
+       ================================================================ */
+    function toggleWishlist(btn) {
+      const nowActive = btn.classList.toggle('active');
+      const card = btn.closest('.product-card');
+      const name = card ? card.querySelector('.product-name').textContent : 'Produit';
+      showToast(nowActive ? `"${name}" ajouté à vos favoris !` : `"${name}" retiré de vos favoris.`);
+    }
+
+    /* ================================================================
+       5) FILTRAGE BOUTIQUE
+       ================================================================ */
+    function filterShop(category) {
+      showPage('shop');
+      const cards = document.querySelectorAll('#shop-grid .product-card');
+      cards.forEach(card => {
+        const cats = (card.getAttribute('data-categories') || '').split(' ');
+        const show = category === 'all' || cats.includes(category);
+        card.classList.toggle('hidden', !show);
+      });
+      document.querySelectorAll('.filter-chip').forEach(chip => {
+        chip.classList.toggle('active', chip.getAttribute('data-filter') === category);
+      });
+      const grid = document.getElementById('shop-grid');
+      if (grid) grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    /* ================================================================
+       6) RITUELS
+       ================================================================ */
+    const rituals = {
+      eclat: {
+        title: 'Rituel Éclat',
+        desc: "Un duo pensé pour raviver la luminosité naturelle de la peau, en associant un actif antioxydant puissant à un soin renforçant complet.",
+        img: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=800&q=80&auto=format&fit=crop',
+        items: ['Sérum éclat à la vitamine C', 'Coffret renouveau éclat']
+      },
+      hydratation: {
+        title: 'Rituel Hydratation',
+        desc: "Le duo essentiel pour nettoyer en douceur et restaurer durablement le film hydrolipidique de la peau.",
+        img: 'https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=800&q=80&auto=format&fit=crop',
+        items: ['Crème hydratante barrière', 'Gel nettoyant apaisant au thé vert']
+      },
+      apaisant: {
+        title: 'Rituel Apaisant',
+        desc: "Une routine douce pour calmer les peaux sensibles et réparer la barrière cutanée pendant la nuit.",
+        img: 'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=800&q=80&auto=format&fit=crop',
+        items: ['Nettoyant moussant doux', 'Crème réparatrice de nuit']
+      }
+    };
+
+    function openRitual(key) {
+      const ritual = rituals[key];
+      if (!ritual) return;
+      const productData = ritual.items
+        .filter(name => priceMapEur[name] !== undefined)
+        .map(name => ({ name, priceEur: priceMapEur[name], img: productImages[name] }));
+      const totalEur = productData.reduce((sum, p) => sum + p.priceEur, 0);
+
+      const html = `
+        <img src="${ritual.img}" class="modal-img" alt="${ritual.title}">
+        <p class="modal-meta">COLLECTION</p>
+        <h2 class="modal-title">${ritual.title}</h2>
+        <p>${ritual.desc}</p>
+        ${productData.map(p => `
+          <div class="ritual-product-row">
+            <img src="${p.img}" alt="${esc(p.name)}">
+            <span class="ritual-name">${esc(p.name)}</span>
+            <span class="ritual-price">${formatPrice(p.priceEur)}</span>
+          </div>`).join('')}
+        <div class="ritual-total-row">
+          <span>TOTAL DU RITUEL</span>
+          <span>${formatPrice(totalEur)}</span>
+        </div>
+        <button class="btn-primary" style="width:100%; text-align:center; margin-top:0;" onclick="addRitualToCart('${key}')">AJOUTER LE RITUEL AU PANIER</button>
+      `;
+      openModal('custom', html);
+    }
+
+    function addRitualToCart(key) {
+      const ritual = rituals[key];
+      if (!ritual) return;
+      ritual.items.forEach(name => {
+        if (priceMapEur[name] !== undefined) addToCart(name, priceMapEur[name]);
+      });
+      closeModal();
+      toggleCart();
+    }
+
+    /* ================================================================
+       7) ARTICLES BLOG
+       ================================================================ */
+    const articles = {
+      1: {
+        title: "Le rituel du matin pour une peau lumineuse",
+        date: "15 Mars 2025",
+        img: 'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=900&q=80&auto=format&fit=crop',
+        body: `Le matin, la peau a besoin d'être réveillée en douceur plutôt qu'agressée. Commencez par un nettoyage léger à l'eau tiède ou avec un gel nettoyant doux comme notre Gel nettoyant apaisant au thé vert, pour éliminer le film gras nocturne sans décaper l'épiderme. Appliquez ensuite un sérum antioxydant, tel que le Sérum éclat à la vitamine C, qui protège la peau des agressions extérieures tout au long de la journée et ravive l'éclat du teint. Terminez par une crème hydratante adaptée à votre type de peau et, bien sûr, une protection solaire quotidienne. Ce rituel simple, répété chaque matin, suffit à transformer durablement la texture et la luminosité de la peau.`
+      },
+      2: {
+        title: "Tout savoir sur la vitamine C en cosmétique",
+        date: "8 Mars 2025",
+        img: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=900&q=80&auto=format&fit=crop',
+        body: `La vitamine C est l'un des actifs les plus étudiés en dermatologie cosmétique. Puissant antioxydant, elle neutralise les radicaux libres responsables du vieillissement prématuré de la peau, tout en stimulant la production naturelle de collagène. Elle est également reconnue pour son action éclaircissante : elle atténue les taches pigmentaires et unifie le teint. Pour en profiter pleinement, il est recommandé de l'appliquer le matin, sous une protection solaire, et de la conserver à l'abri de la lumière pour éviter son oxydation. Notre Sérum éclat à la vitamine C a été formulé pour offrir une concentration efficace tout en respectant les peaux sensibles.`
+      },
+      3: {
+        title: "Hydratation : la clé d'une barrière cutanée saine",
+        date: "1 Mars 2025",
+        img: 'https://images.unsplash.com/photo-1570194065650-d99fb4bedf0a?w=900&q=80&auto=format&fit=crop',
+        body: `Une peau bien hydratée est une peau capable de se défendre. La barrière cutanée, composée de lipides et de cellules mortes, retient l'eau et protège des agressions extérieures. Lorsqu'elle est fragilisée, la peau devient sèche, sensible et sujette aux irritations. Pour la renforcer, misez sur des soins riches en céramides, acide hyaluronique et beurres végétaux, comme notre Crème hydratante barrière. Appliquez-la matin et soir sur une peau encore légèrement humide pour optimiser l'absorption des actifs et maintenir un film hydrolipidique sain toute la journée.`
+      },
+      4: {
+        title: "Protection solaire : le geste anti-âge indispensable",
+        date: "22 Février 2025",
+        img: 'https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=900&q=80&auto=format&fit=crop',
+        body: `Les rayons UV sont responsables de près de 80% du vieillissement cutané visible. Rides, taches, perte de fermeté : l'exposition solaire répétée accélère tous ces phénomènes, même par temps nuageux. Appliquer une protection solaire chaque matin, toute l'année, est donc le geste anti-âge le plus efficace qui soit — bien avant n'importe quel sérum. Notre Protection solaire quotidienne SPF 50 offre une protection large spectre tout en laissant un fini léger, non gras, compatible avec un maquillage léger.`
+      },
+      5: {
+        title: "Le soin de nuit : votre secret beauté pendant le sommeil",
+        date: "14 Février 2025",
+        img: 'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=900&q=80&auto=format&fit=crop',
+        body: `Pendant la nuit, la peau entre en mode régénération : le renouvellement cellulaire s'accélère et la microcirculation s'intensifie. C'est le moment idéal pour lui apporter des actifs réparateurs plus riches, sans se soucier de la photosensibilisation. Notre Crème réparatrice de nuit associe des actifs nourrissants et réparateurs pour accompagner ce processus naturel et vous offrir un teint reposé et éclatant dès le réveil. Pensez aussi à dormir sur une taie en soie ou satin pour limiter les frottements et préserver l'hydratation cutanée.`
+      },
+      6: {
+        title: "Construire une routine skincare efficace en 5 étapes",
+        date: "5 Février 2025",
+        img: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=900&q=80&auto=format&fit=crop',
+        body: `Une routine skincare efficace n'a pas besoin d'être compliquée. Elle repose sur 5 étapes essentielles : 1) Nettoyer, matin et soir, avec un nettoyant adapté à votre type de peau. 2) Traiter avec un sérum ciblé selon vos besoins (éclat, hydratation, anti-âge). 3) Hydrater pour maintenir la barrière cutanée. 4) Protéger avec un SPF le matin, sans exception. 5) Chouchouter une à deux fois par semaine avec un soin spécifique (masque, exfoliant doux). La régularité prime sur la quantité de produits : mieux vaut une routine simple suivie tous les jours qu'une routine complexe abandonnée après une semaine.`
+      }
+    };
+
+    function openArticle(id) {
+      const article = articles[id];
+      if (!article) return;
+      const html = `
+        <img src="${article.img}" class="modal-img" alt="${article.title}">
+        <p class="modal-meta">${article.date}</p>
+        <h2 class="modal-title">${article.title}</h2>
+        <p>${article.body}</p>
+      `;
+      openModal('custom', html);
+    }
+
+    /* ================================================================
+       8) MODAL
+       ================================================================ */
+    function openModal(type, customHtml) {
+      const overlay = document.getElementById('modal-overlay');
+      const box = document.getElementById('modal-box');
+      const content = document.getElementById('modal-content');
+
+      content.innerHTML = customHtml;
+
+      overlay.classList.add('show');
+      box.classList.add('open');
+    }
+
+    function closeModal() {
+      document.getElementById('modal-overlay').classList.remove('show');
+      document.getElementById('modal-box').classList.remove('open');
+    }
+
+    /* ================================================================
+       9) MENU MOBILE & HEADER
+       ================================================================ */
+    function toggleMobileMenu() {
+      document.getElementById('mobile-nav').classList.toggle('open');
+    }
+
+    function updateHeader() {
+      const header = document.getElementById('site-header');
+      const homePage = document.getElementById('page-home');
+      const isHomeActive = homePage && homePage.classList.contains('active');
+      const scrollY = window.scrollY || window.pageYOffset;
+
+      if (!isHomeActive) {
+        header.classList.add('solid');
+        header.classList.remove('scrolled');
+      } else {
+        header.classList.remove('solid');
+        header.classList.toggle('scrolled', scrollY > 60);
+      }
+    }
+
+    window.addEventListener('scroll', updateHeader, { passive: true });
+    window.addEventListener('resize', updateHeader);
+
+    /* ================================================================
+       10) NAVIGATION ENTRE PAGES
+       ================================================================ */
+    function showPage(pageId) {
+      document.querySelectorAll('.page').forEach(page => {
+        page.classList.remove('active');
+      });
+
+      const targetPage = document.getElementById('page-' + pageId);
+      if (targetPage) {
+        targetPage.classList.add('active');
+      }
+
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.style.color = '';
+        link.style.fontWeight = '';
+        link.classList.remove('active-nav');
+      });
+
+      const activeNav = document.getElementById('nav-' + pageId);
+      if (activeNav) {
+        activeNav.style.color = 'var(--color-primary)';
+        activeNav.style.fontWeight = '600';
+        activeNav.classList.add('active-nav');
+      }
+
+      const mobileNav = document.getElementById('mobile-nav');
+      if (mobileNav) mobileNav.classList.remove('open');
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      updateHeader();
+    }
+
+    /* ================================================================
+       11) INITIALISATION
+       ================================================================ */
+    document.addEventListener('DOMContentLoaded', function() {
+      renderShop();
+      renderArrivals();
+      showPage('home');
+      refreshAllPrices();
+      renderCart();
+      updateHeader();
+      
+      console.log('%c🌿 Sarah-Anne VALÈRE — Site chargé avec succès !', 'color:#8b3a5c; font-weight:bold; font-size:14px;');
+      console.log('%c💡 Pour ajouter un produit : addProduct("Nom", 9.99, "images/mon-image.jpg", ["serums"], true);', 'color:#5c2340; font-style:italic;');
+    });
+  </script>
+
+</body>
+</html>
